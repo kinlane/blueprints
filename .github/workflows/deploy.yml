@@ -19,10 +19,11 @@ jobs:
           npm run build --if-present
         env:
           CI: true
-      - name: zip up
+          
+      - name: blueprints get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-get.zip blueprints/blueprints-get/index.js node_modules
+          args: zip -qq -r blueprints-get.zip blueprints/get/index.js node_modules
       - name: blueprints get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -32,3 +33,54 @@ jobs:
           function_name: blueprints-staging-blueprints-get
           zip_file: blueprints-get.zip
 
+      - name: blueprints post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-post.zip blueprints/post/index.js node_modules
+      - name: blueprints post lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-staging-blueprints-post
+          zip_file: blueprints-post.zip
+
+      - name: blueprints id get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-id-get.zip blueprints/id/get/index.js node_modules
+      - name: blueprints id get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-staging-blueprints-id-get
+          zip_file: blueprints-id-get.zip       
+
+      - name: blueprints id put lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-id-put.zip blueprints/id/put/index.js node_modules
+      - name: blueprints id put lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-staging-blueprints-id-put
+          zip_file: blueprints-id-put.zip       
+
+      - name: blueprints id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-id-delete.zip blueprints/id/delete/index.js node_modules
+      - name: blueprints id delete lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-staging-blueprints-id-delete
+          zip_file: blueprints-id-delete.zip                              
