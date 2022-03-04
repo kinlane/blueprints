@@ -1,0 +1,34 @@
+name: Deploy to Lambda
+on: [push]
+jobs:
+  deploy_source:
+    name: Deploy to Lambda
+    strategy:
+      matrix:
+        node-version: [12.x]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install and build
+        run: |
+          npm ci
+          npm run build --if-present
+        env:
+          CI: true
+      - name: zip up
+        uses: postman-open-technologies/openapi-linting-api@main   
+        with:
+          args: zip -qq -r linter.zip index.js node_modules
+      - name: lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: oas-linting-api-production
+          zip_file: linter.zip
+
