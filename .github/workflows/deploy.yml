@@ -20,15 +20,15 @@ jobs:
         env:
           CI: true
       - name: zip up
-        uses: postman-open-technologies/openapi-linting-api@main   
+        uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r linter.zip index.js node_modules
-      - name: lambda deploy
+          args: zip -qq -r blueprints-get.zip blueprints/get/index.js
+      - name: blueprints get lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: oas-linting-api-production
-          zip_file: linter.zip
+          function_name: blueprints-staging-blueprints-get
+          zip_file: blueprints-get.zip
 
