@@ -1,4 +1,3 @@
-// Added to handle injection
 const vandium = require('vandium');
 const mysql  = require('mysql');
 
