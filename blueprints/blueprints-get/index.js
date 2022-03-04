@@ -1,5 +1,6 @@
 const vandium = require('vandium');
 const mysql  = require('mysql');
+const async  = require('async');
 
 exports.handler = vandium.generic()
   .handler( (event, context, callback) => {
@@ -13,17 +14,45 @@ exports.handler = vandium.generic()
 
     connection.query('SELECT * FROM blueprints', function (error, blueprints, fields) {
 
-      for (let i = 0; i < blueprints.length; i++) {
+      var b_count = 0;
+      async.each(blueprints, function (blueprint, callback) {
         
-        connection.query('SELECT * FROM blueprints_areas WHERE id = ' + blueprints[i].blueprints_id, function (error, areas, fields) {
+        connection.query('SELECT * FROM blueprints_areas WHERE id = ' + blueprint.id, function (error, areas, fields) {
 
-          blueprints.areas = areas;
+          // we don't need ids going out door
+          for (let a = 0; a < areas.length; a++) {
+            delete areas[a].id;
+            delete areas[a].blueprint_id;
+          }
+
+          blueprints[b_count].areas = areas;
+          
+          var a_count = 0;
+          async.each(area, function (area, callback) {
+          
+            console.log('SELECT * FROM blueprints_areas_elements WHERE id = ' + area.id);
+            connection.query('SELECT * FROM blueprints_areas_elements WHERE id = ' + area.id, function (error, elements, fields) {
+              
+              console.log(elements);
+              // we don't need ids going out door
+              for (let e = 0; e < elements.length; e++) {
+                delete elements[e].id;
+                delete elements[e].blueprint_id;
+              }
+    
+              blueprints[b_count].areas[a_count].elements = elements;
+              
+              callback( null, blueprints );
+    
+            });
+          
+          a_count++;
+          });
 
         });
 
-      }
-
-      callback( null, blueprints );
+      b_count++;
+      });
 
     });
 });
