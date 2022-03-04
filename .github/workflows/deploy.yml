@@ -22,7 +22,7 @@ jobs:
       - name: zip up
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-get.zip index.js
+          args: zip -qq -r blueprints-get.zip index.js node_modules
       - name: blueprints get lambda deploy
         uses: appleboy/lambda-action@master
         with:
