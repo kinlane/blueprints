@@ -11,9 +11,19 @@ exports.handler = vandium.generic()
     database : process.env.database
     });
 
-    connection.query('SELECT * FROM blueprints', function (error, results, fields) {
+    connection.query('SELECT * FROM blueprints', function (error, blueprints, fields) {
 
-    callback( null, results );
+      for (let i = 0; i < blueprints.length; i++) {
+        
+        connection.query('SELECT * FROM blueprints_areas WHERE id = ' + blueprints[i].blueprints_id, function (error, areas, fields) {
 
-  });
+          blueprints.areas = areas;
+
+        });
+
+      }
+
+      callback( null, blueprints );
+
+    });
 });
