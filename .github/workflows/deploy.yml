@@ -56,7 +56,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-staging-blueprints-id-get
+          function_name: blueprints-staging-blueprints-blueprint_id-get
           zip_file: blueprints-id-get.zip       
 
       - name: blueprints id put lambda deploy zip
@@ -69,7 +69,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-staging-blueprints-id-put
+          function_name: blueprints-staging-blueprints-blueprint_id-put
           zip_file: blueprints-id-put.zip       
 
       - name: blueprints id delete lambda deploy zip
@@ -82,5 +82,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-staging-blueprints-id-delete
+          function_name: blueprints-staging-blueprints-blueprint_id-delete
           zip_file: blueprints-id-delete.zip                              
