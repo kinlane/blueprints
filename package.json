@@ -6,6 +6,7 @@
   "dependencies": {
     "vandium": "*",
     "mysql": "*",
-    "async": "*"
+    "async": "*",
+    "pool": "*"
   }
 }
