@@ -1,7 +1,7 @@
 const vandium = require('vandium');
 const mysql  = require('mysql');
 
-exports.index.handler = vandium.generic()
+exports.handler = vandium.generic()
   .handler( (event, context, callback) => {
 
     var connection = mysql.createConnection({
