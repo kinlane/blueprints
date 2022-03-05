@@ -45,7 +45,7 @@ exports.handler = vandium.generic()
       response['id'] = event.id;
       response['name'] = event.name;
 
-      callback( null, fields );
+      callback( null, error );
 
     });
 });
