@@ -97,7 +97,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: actions-staging-actions-get
+          function_name: actions-s-actions-get
           zip_file: actions-get.zip
 
       - name: actions post lambda deploy zip
@@ -110,7 +110,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: actions-staging-actions-post
+          function_name: actions-s-actions-post
           zip_file: actions-post.zip
 
       - name: actions id get lambda deploy zip
@@ -123,7 +123,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: actions-staging-actions-action_id-get
+          function_name: actions-s-actions-a_id-get
           zip_file: actions-id-get.zip       
 
       - name: actions id put lambda deploy zip
@@ -136,7 +136,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: actions-staging-actions-action_id-put
+          function_name: actions-s-actions-a_id-put
           zip_file: actions-id-put.zip       
 
       - name: actions id delete lambda deploy zip
@@ -149,7 +149,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: actions-staging-actions-action_id-delete
+          function_name: actions-s-actions-a_id-delete
           zip_file: actions-id-delete.zip                              
 
       # answers
@@ -163,7 +163,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: answers-staging-answers-get
+          function_name: answers-s-answers-get
           zip_file: answers-get.zip
 
       - name: answers post lambda deploy zip
@@ -176,7 +176,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: answers-staging-answers-post
+          function_name: answers-s-answers-post
           zip_file: answers-post.zip
 
       - name: answers id get lambda deploy zip
@@ -189,7 +189,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: answers-staging-answers-answer_id-get
+          function_name: answers-s-answers-a_id-get
           zip_file: answers-id-get.zip       
 
       - name: answers id put lambda deploy zip
@@ -202,7 +202,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: answers-staging-answers-answer_id-put
+          function_name: answers-s-answers-a_id-put
           zip_file: answers-id-put.zip       
 
       - name: answers id delete lambda deploy zip
@@ -215,7 +215,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: answers-staging-answers-answer_id-delete
+          function_name: answers-s-answers-a_id-delete
           zip_file: answers-id-delete.zip                              
 
       # elements
@@ -229,7 +229,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: elements-staging-elements-get
+          function_name: elements-s-elements-get
           zip_file: elements-get.zip
 
       - name: elements post lambda deploy zip
@@ -242,7 +242,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: elements-staging-elements-post
+          function_name: elements-s-elements-post
           zip_file: elements-post.zip
 
       - name: elements id get lambda deploy zip
@@ -255,7 +255,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: elements-staging-elements-element_id-get
+          function_name: elements-s-elements-e_id-get
           zip_file: elements-id-get.zip       
 
       - name: elements id put lambda deploy zip
@@ -268,7 +268,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: elements-staging-elements-element_id-put
+          function_name: elements-s-elements-e_id-put
           zip_file: elements-id-put.zip       
 
       - name: elements id delete lambda deploy zip
@@ -281,7 +281,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: elements-staging-elements-element_id-delete
+          function_name: elements-s-elements-e_id-delete
           zip_file: elements-id-delete.zip                              
 
       # landscapes
@@ -295,7 +295,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscape-staging-landscape-get
+          function_name: landscape-s-landscape-get
           zip_file: landscapes-get.zip
 
       - name: landscapes post lambda deploy zip
@@ -308,7 +308,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscape-staging-landscape-post
+          function_name: landscape-s-landscape-post
           zip_file: landscapes-post.zip
 
       - name: landscapes id get lambda deploy zip
@@ -321,7 +321,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscape-staging-landscape-landscape_id-get
+          function_name: landscape-s-landscape-l_id-get
           zip_file: landscapes-id-get.zip       
 
       - name: landscapes id put lambda deploy zip
@@ -334,7 +334,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscape-staging-landscape-landscape_id-put
+          function_name: landscape-s-landscape-l_id-put
           zip_file: landscapes-id-put.zip       
 
       - name: landscapes id delete lambda deploy zip
@@ -347,7 +347,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscape-staging-landscape-landscape_id-delete
+          function_name: landscape-s-landscape-l_id-delete
           zip_file: landscapes-id-delete.zip                              
 
       # personas
@@ -361,7 +361,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: personas-staging-personas-get
+          function_name: personas-s-personas-get
           zip_file: personas-get.zip
 
       - name: personas post lambda deploy zip
@@ -374,7 +374,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: personas-staging-personas-post
+          function_name: personas-s-personas-post
           zip_file: personas-post.zip
 
       - name: personas id get lambda deploy zip
@@ -387,7 +387,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: personas-staging-personas-persona_id-get
+          function_name: personas-s-personas-p_id-get
           zip_file: personas-id-get.zip       
 
       - name: personas id put lambda deploy zip
@@ -400,7 +400,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: personas-staging-personas-persona_id-put
+          function_name: personas-s-personas-p_id-put
           zip_file: personas-id-put.zip       
 
       - name: personas id delete lambda deploy zip
@@ -413,7 +413,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: personas-staging-personas-persona_id-delete
+          function_name: personas-s-personas-p_id-delete
           zip_file: personas-id-delete.zip                              
 
       # questions
@@ -427,7 +427,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: questions-staging-questions-get
+          function_name: questions-s-questions-get
           zip_file: questions-get.zip
 
       - name: questions post lambda deploy zip
@@ -440,7 +440,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: questions-staging-questions-post
+          function_name: questions-s-questions-post
           zip_file: questions-post.zip
 
       - name: questions id get lambda deploy zip
@@ -453,7 +453,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: questions-staging-questions-question_id-get
+          function_name: questions-s-questions-q_id-get
           zip_file: questions-id-get.zip       
 
       - name: questions id put lambda deploy zip
@@ -466,7 +466,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: questions-staging-questions-question_id-put
+          function_name: questions-s-questions-q_id-put
           zip_file: questions-id-put.zip       
 
       - name: questions id delete lambda deploy zip
@@ -479,7 +479,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: questions-staging-questions-question_id-delete
+          function_name: questions-s-questions-q_id-delete
           zip_file: questions-id-delete.zip                              
 
       # roles
@@ -493,7 +493,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: roles-staging-roles-get
+          function_name: roles-s-roles-get
           zip_file: roles-get.zip
 
       - name: roles post lambda deploy zip
@@ -506,7 +506,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: roles-staging-roles-post
+          function_name: roles-s-roles-post
           zip_file: roles-post.zip
 
       - name: roles id get lambda deploy zip
@@ -519,7 +519,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: roles-staging-roles-role_id-get
+          function_name: roles-s-roles-r_id-get
           zip_file: roles-id-get.zip       
 
       - name: roles id put lambda deploy zip
@@ -532,7 +532,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: roles-staging-roles-role_id-put
+          function_name: roles-s-roles-r_id-put
           zip_file: roles-id-put.zip       
 
       - name: roles id delete lambda deploy zip
@@ -545,7 +545,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: roles-staging-roles-role_id-delete
+          function_name: roles-s-roles-r_id-delete
           zip_file: roles-id-delete.zip                              
 
       # rules
@@ -559,7 +559,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: rules-staging-rules-get
+          function_name: rules-s-rules-get
           zip_file: rules-get.zip
 
       - name: rules post lambda deploy zip
@@ -572,7 +572,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: rules-staging-rules-post
+          function_name: rules-s-rules-post
           zip_file: rules-post.zip
 
       - name: rules id get lambda deploy zip
@@ -585,7 +585,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: rules-staging-rules-rule_id-get
+          function_name: rules-s-rules-r_id-get
           zip_file: rules-id-get.zip       
 
       - name: rules id put lambda deploy zip
@@ -598,7 +598,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: rules-staging-rules-rule_id-put
+          function_name: rules-s-rules-r_id-put
           zip_file: rules-id-put.zip       
 
       - name: rules id delete lambda deploy zip
@@ -611,7 +611,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: rules-staging-rules-rule_id-delete
+          function_name: rules-s-rules-r_id-delete
           zip_file: rules-id-delete.zip                              
 
       # vocabularies
@@ -625,7 +625,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-staging-vocabularies-get
+          function_name: vocabularies-s-vocabularies-get
           zip_file: vocabularies-get.zip
 
       - name: vocabularies post lambda deploy zip
@@ -638,7 +638,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-staging-vocabularies-post
+          function_name: vocabularies-s-vocabularies-post
           zip_file: vocabularies-post.zip
 
       - name: vocabularies id get lambda deploy zip
@@ -651,7 +651,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-staging-vocabularies-rule_id-get
+          function_name: vocabularies-s-vocabularies-r_id-get
           zip_file: vocabularies-id-get.zip       
 
       - name: vocabularies id put lambda deploy zip
@@ -664,7 +664,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-staging-vocabularies-rule_id-put
+          function_name: vocabularies-s-vocabularies-r_id-put
           zip_file: vocabularies-id-put.zip       
 
       - name: vocabularies id delete lambda deploy zip
@@ -677,7 +677,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-staging-vocabularies-rule_id-delete
+          function_name: vocabularies-s-vocabularies-r_id-delete
           zip_file: vocabularies-id-delete.zip                              
 
       # tags
@@ -691,7 +691,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tags-staging-tags-get
+          function_name: tags-s-tags-get
           zip_file: tags-get.zip
 
       - name: tags post lambda deploy zip
@@ -704,7 +704,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tags-staging-tags-post
+          function_name: tags-s-tags-post
           zip_file: tags-post.zip
 
       - name: tags id get lambda deploy zip
@@ -717,7 +717,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tags-staging-tags-rule_id-get
+          function_name: tags-s-tags-t_id-get
           zip_file: tags-id-get.zip       
 
       - name: tags id put lambda deploy zip
@@ -730,7 +730,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tags-staging-tags-rule_id-put
+          function_name: tags-s-tags-t_id-put
           zip_file: tags-id-put.zip       
 
       - name: tags id delete lambda deploy zip
@@ -743,7 +743,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tags-staging-tags-rule_id-delete
+          function_name: tags-s-tags-t_id-delete
           zip_file: tags-id-delete.zip                              
 
       # links
@@ -757,7 +757,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: links-staging-links-get
+          function_name: links-s-links-get
           zip_file: links-get.zip
 
       - name: links post lambda deploy zip
@@ -770,7 +770,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: links-staging-links-post
+          function_name: links-s-links-post
           zip_file: links-post.zip
 
       - name: links id get lambda deploy zip
@@ -783,7 +783,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: links-staging-links-rule_id-get
+          function_name: links-s-links-l_id-get
           zip_file: links-id-get.zip       
 
       - name: links id put lambda deploy zip
@@ -796,7 +796,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: links-staging-links-rule_id-put
+          function_name: links-s-links-l_id-put
           zip_file: links-id-put.zip       
 
       - name: links id delete lambda deploy zip
@@ -809,7 +809,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: links-staging-links-rule_id-delete
+          function_name: links-s-links-l_id-delete
           zip_file: links-id-delete.zip                              
 
       # videos
@@ -823,7 +823,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: videos-staging-videos-get
+          function_name: videos-s-videos-get
           zip_file: videos-get.zip
 
       - name: videos post lambda deploy zip
@@ -836,7 +836,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: videos-staging-videos-post
+          function_name: videos-s-videos-post
           zip_file: videos-post.zip
 
       - name: videos id get lambda deploy zip
@@ -849,7 +849,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: videos-staging-videos-rule_id-get
+          function_name: videos-s-videos-v_id-get
           zip_file: videos-id-get.zip       
 
       - name: videos id put lambda deploy zip
@@ -862,7 +862,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: videos-staging-videos-rule_id-put
+          function_name: videos-s-videos-v_id-put
           zip_file: videos-id-put.zip       
 
       - name: videos id delete lambda deploy zip
@@ -875,7 +875,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: videos-staging-videos-rule_id-delete
+          function_name: videos-s-videos-v_id-delete
           zip_file: videos-id-delete.zip                              
 
       # tools
@@ -889,7 +889,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tools-staging-tools-get
+          function_name: tools-s-tools-get
           zip_file: tools-get.zip
 
       - name: tools post lambda deploy zip
@@ -902,7 +902,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tools-staging-tools-post
+          function_name: tools-s-tools-post
           zip_file: tools-post.zip
 
       - name: tools id get lambda deploy zip
@@ -915,7 +915,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tools-staging-tools-rule_id-get
+          function_name: tools-s-tools-t_id-get
           zip_file: tools-id-get.zip       
 
       - name: tools id put lambda deploy zip
@@ -928,7 +928,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tools-staging-tools-rule_id-put
+          function_name: tools-s-tools-t_id-put
           zip_file: tools-id-put.zip       
 
       - name: tools id delete lambda deploy zip
@@ -941,7 +941,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: tools-staging-tools-rule_id-delete
+          function_name: tools-s-tools-t_id-delete
           zip_file: tools-id-delete.zip                              
 
 
