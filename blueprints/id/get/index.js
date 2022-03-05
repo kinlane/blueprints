@@ -11,7 +11,7 @@ exports.handler = vandium.generic()
     database : process.env.database
     });
 
-    var sql = 'SELECT * FROM items WHERE item_id = ' + connection.escape(event.blueprint_id);
+    var sql = 'SELECT * FROM blueprints WHERE id = ' + connection.escape(event.blueprint_id);
     connection.query(sql, function (error, results, fields) {
 
     callback( null, results );

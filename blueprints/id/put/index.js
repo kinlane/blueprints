@@ -10,26 +10,25 @@ exports.handler = vandium.generic()
     password : process.env.password,
     database : process.env.database
     });
-
-    sql = 'UPDATE blueprints SET';
     
-    var property_count = 0;
-    for (const [key, value] of Object.entries( connection.escape(event.body))) {
+    var total_properties = Object.keys(event.body).length;
+
+    var sql = 'UPDATE blueprints SET ';
+    
+    var property_count = 1;
+    for (const [key, value] of Object.entries(event.body)) {
       sql += key + " = '" + value + "'";
-      if(property_count < event.body.length){
+      if(property_count != total_properties){
         sql += ',';
       }
+      property_count++;
     }
 
-    sql += " WHERE id = " + connection.escape(event.body.id);
+    sql += " WHERE id = " + connection.escape(event.blueprint_id);
   
     connection.query(sql, function (error, results, fields) {
-  
-      response = {};
-      response['id'] = event.id;
-      response['name'] = event.name;
 
-    callback( null, results );
+    callback( null );
 
   });
 });
