@@ -651,7 +651,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-s-vocabularies-r_id-get
+          function_name: vocabularies-s-vocabularies-v_id-get
           zip_file: vocabularies-id-get.zip       
 
       - name: vocabularies id put lambda deploy zip
@@ -664,7 +664,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-s-vocabularies-r_id-put
+          function_name: vocabularies-s-vocabularies-v_id-put
           zip_file: vocabularies-id-put.zip       
 
       - name: vocabularies id delete lambda deploy zip
@@ -677,7 +677,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: vocabularies-s-vocabularies-r_id-delete
+          function_name: vocabularies-s-vocabularies-v_id-delete
           zip_file: vocabularies-id-delete.zip                              
 
       # tags
