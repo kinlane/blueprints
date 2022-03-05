@@ -616,7 +616,7 @@ jobs:
 
       # vocabularies
       - name: vocabularies get lambda deploy zip
-        uses: kinlane/vocabularies@main   
+        uses: kinlane/blueprints@main   
         with:
           args: zip -qq -r vocabularies-get.zip vocabularies/get/index.js node_modules
       - name: vocabularies get lambda deploy
@@ -629,7 +629,7 @@ jobs:
           zip_file: vocabularies-get.zip
 
       - name: vocabularies post lambda deploy zip
-        uses: kinlane/vocabularies@main   
+        uses: kinlane/blueprints@main   
         with:
           args: zip -qq -r vocabularies-post.zip vocabularies/post/index.js node_modules
       - name: vocabularies post lambda deploy
@@ -642,7 +642,7 @@ jobs:
           zip_file: vocabularies-post.zip
 
       - name: vocabularies id get lambda deploy zip
-        uses: kinlane/vocabularies@main   
+        uses: kinlane/blueprints@main   
         with:
           args: zip -qq -r vocabularies-id-get.zip vocabularies/id/get/index.js node_modules
       - name: vocabularies id get lambda deploy
@@ -655,7 +655,7 @@ jobs:
           zip_file: vocabularies-id-get.zip       
 
       - name: vocabularies id put lambda deploy zip
-        uses: kinlane/vocabularies@main   
+        uses: kinlane/blueprints@main   
         with:
           args: zip -qq -r vocabularies-id-put.zip vocabularies/id/put/index.js node_modules
       - name: vocabularies id put lambda deploy
@@ -668,7 +668,7 @@ jobs:
           zip_file: vocabularies-id-put.zip       
 
       - name: vocabularies id delete lambda deploy zip
-        uses: kinlane/vocabularies@main   
+        uses: kinlane/blueprints@main   
         with:
           args: zip -qq -r vocabularies-id-delete.zip vocabularies/id/delete/index.js node_modules
       - name: vocabularies id delete lambda deploy
