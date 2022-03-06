@@ -116,7 +116,7 @@ jobs:
       - name: actions id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r actions-id-get.zip actions/id/get/index.js node_modules
+          args: zip -qq -r actions-a_id-get.zip actions/a_id/get/index.js node_modules
       - name: actions id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -124,12 +124,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: actions-s-actions-a_id-get
-          zip_file: actions-id-get.zip       
+          zip_file: actions-a_id-get.zip       
 
       - name: actions id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r actions-id-put.zip actions/id/put/index.js node_modules
+          args: zip -qq -r actions-a_id-put.zip actions/a_id/put/index.js node_modules
       - name: actions id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -137,12 +137,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: actions-s-actions-a_id-put
-          zip_file: actions-id-put.zip       
+          zip_file: actions-a_id-put.zip       
 
       - name: actions id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r actions-id-delete.zip actions/id/delete/index.js node_modules
+          args: zip -qq -r actions-a_id-delete.zip actions/a_id/delete/index.js node_modules
       - name: actions id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -150,7 +150,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: actions-s-actions-a_id-delete
-          zip_file: actions-id-delete.zip                              
+          zip_file: actions-a_id-delete.zip                              
 
       # answers
       - name: answers get lambda deploy zip
@@ -182,7 +182,7 @@ jobs:
       - name: answers id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r answers-id-get.zip answers/id/get/index.js node_modules
+          args: zip -qq -r answers-a_id-get.zip answers/a_id/get/index.js node_modules
       - name: answers id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -190,12 +190,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: answers-s-answers-a_id-get
-          zip_file: answers-id-get.zip       
+          zip_file: answers-a_id-get.zip       
 
       - name: answers id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r answers-id-put.zip answers/id/put/index.js node_modules
+          args: zip -qq -r answers-a_id-put.zip answers/a_id/put/index.js node_modules
       - name: answers id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -203,12 +203,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: answers-s-answers-a_id-put
-          zip_file: answers-id-put.zip       
+          zip_file: answers-a_id-put.zip       
 
       - name: answers id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r answers-id-delete.zip answers/id/delete/index.js node_modules
+          args: zip -qq -r answers-a_id-delete.zip answers/a_id/delete/index.js node_modules
       - name: answers id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -216,7 +216,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: answers-s-answers-a_id-delete
-          zip_file: answers-id-delete.zip                              
+          zip_file: answers-a_id-delete.zip                              
 
       # elements
       - name: elements get lambda deploy zip
@@ -248,7 +248,7 @@ jobs:
       - name: elements id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r elements-id-get.zip elements/id/get/index.js node_modules
+          args: zip -qq -r elements-e_id-get.zip elements/e_id/get/index.js node_modules
       - name: elements id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -256,12 +256,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: elements-s-elements-e_id-get
-          zip_file: elements-id-get.zip       
+          zip_file: elements-e_id-get.zip       
 
       - name: elements id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r elements-id-put.zip elements/id/put/index.js node_modules
+          args: zip -qq -r elements-e_id-put.zip elements/e_id/put/index.js node_modules
       - name: elements id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -269,12 +269,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: elements-s-elements-e_id-put
-          zip_file: elements-id-put.zip       
+          zip_file: elements-e_id-put.zip       
 
       - name: elements id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r elements-id-delete.zip elements/id/delete/index.js node_modules
+          args: zip -qq -r elements-e_id-delete.zip elements/e_id/delete/index.js node_modules
       - name: elements id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -282,7 +282,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: elements-s-elements-e_id-delete
-          zip_file: elements-id-delete.zip                              
+          zip_file: elements-e_id-delete.zip                              
 
       # landscapes
       - name: landscapes get lambda deploy zip
@@ -314,7 +314,7 @@ jobs:
       - name: landscapes id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-id-get.zip landscapes/id/get/index.js node_modules
+          args: zip -qq -r landscapes-l_id-get.zip landscapes/l_id/get/index.js node_modules
       - name: landscapes id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -322,12 +322,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: landscape-s-landscape-l_id-get
-          zip_file: landscapes-id-get.zip       
+          zip_file: landscapes-l_id-get.zip       
 
       - name: landscapes id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-id-put.zip landscapes/id/put/index.js node_modules
+          args: zip -qq -r landscapes-l_id-put.zip landscapes/l_id/put/index.js node_modules
       - name: landscapes id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -335,12 +335,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: landscape-s-landscape-l_id-put
-          zip_file: landscapes-id-put.zip       
+          zip_file: landscapes-l_id-put.zip       
 
       - name: landscapes id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-id-delete.zip landscapes/id/delete/index.js node_modules
+          args: zip -qq -r landscapes-l_id-delete.zip landscapes/l_id/delete/index.js node_modules
       - name: landscapes id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -348,7 +348,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: landscape-s-landscape-l_id-delete
-          zip_file: landscapes-id-delete.zip                              
+          zip_file: landscapes-l_id-delete.zip                              
 
       # personas
       - name: personas get lambda deploy zip
@@ -380,7 +380,7 @@ jobs:
       - name: personas id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r personas-id-get.zip personas/id/get/index.js node_modules
+          args: zip -qq -r personas-p_id-get.zip personas/p_id/get/index.js node_modules
       - name: personas id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -388,12 +388,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: personas-s-personas-p_id-get
-          zip_file: personas-id-get.zip       
+          zip_file: personas-p_id-get.zip       
 
       - name: personas id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r personas-id-put.zip personas/id/put/index.js node_modules
+          args: zip -qq -r personas-p_id-put.zip personas/p_id/put/index.js node_modules
       - name: personas id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -401,12 +401,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: personas-s-personas-p_id-put
-          zip_file: personas-id-put.zip       
+          zip_file: personas-p_id-put.zip       
 
       - name: personas id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r personas-id-delete.zip personas/id/delete/index.js node_modules
+          args: zip -qq -r personas-p_id-delete.zip personas/p_id/delete/index.js node_modules
       - name: personas id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -414,7 +414,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: personas-s-personas-p_id-delete
-          zip_file: personas-id-delete.zip                              
+          zip_file: personas-p_id-delete.zip                              
 
       # questions
       - name: questions get lambda deploy zip
@@ -512,7 +512,7 @@ jobs:
       - name: roles id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r roles-id-get.zip roles/id/get/index.js node_modules
+          args: zip -qq -r roles-r_id-get.zip roles/r_id/get/index.js node_modules
       - name: roles id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -520,12 +520,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: roles-s-roles-r_id-get
-          zip_file: roles-id-get.zip       
+          zip_file: roles-r_id-get.zip       
 
       - name: roles id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r roles-id-put.zip roles/id/put/index.js node_modules
+          args: zip -qq -r roles-r_id-put.zip roles/r_id/put/index.js node_modules
       - name: roles id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -533,12 +533,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: roles-s-roles-r_id-put
-          zip_file: roles-id-put.zip       
+          zip_file: roles-r_id-put.zip       
 
       - name: roles id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r roles-id-delete.zip roles/id/delete/index.js node_modules
+          args: zip -qq -r roles-r_id-delete.zip roles/r_id/delete/index.js node_modules
       - name: roles id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -546,7 +546,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: roles-s-roles-r_id-delete
-          zip_file: roles-id-delete.zip                              
+          zip_file: roles-r_id-delete.zip                              
 
       # rules
       - name: rules get lambda deploy zip
@@ -578,7 +578,7 @@ jobs:
       - name: rules id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r rules-id-get.zip rules/id/get/index.js node_modules
+          args: zip -qq -r rules-r_id-get.zip rules/r_id/get/index.js node_modules
       - name: rules id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -586,12 +586,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: rules-s-rules-r_id-get
-          zip_file: rules-id-get.zip       
+          zip_file: rules-r_id-get.zip       
 
       - name: rules id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r rules-id-put.zip rules/id/put/index.js node_modules
+          args: zip -qq -r rules-r_id-put.zip rules/r_id/put/index.js node_modules
       - name: rules id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -599,12 +599,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: rules-s-rules-r_id-put
-          zip_file: rules-id-put.zip       
+          zip_file: rules-r_id-put.zip       
 
       - name: rules id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r rules-id-delete.zip rules/id/delete/index.js node_modules
+          args: zip -qq -r rules-r_id-delete.zip rules/r_id/delete/index.js node_modules
       - name: rules id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -612,7 +612,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: rules-s-rules-r_id-delete
-          zip_file: rules-id-delete.zip                              
+          zip_file: rules-r_id-delete.zip                              
 
       # vocabularies
       - name: vocabularies get lambda deploy zip
@@ -644,7 +644,7 @@ jobs:
       - name: vocabularies id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r vocabularies-id-get.zip vocabularies/id/get/index.js node_modules
+          args: zip -qq -r vocabularies-v_id-get.zip vocabularies/v_id/get/index.js node_modules
       - name: vocabularies id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -652,12 +652,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: vocabularies-s-vocabularies-v_id-get
-          zip_file: vocabularies-id-get.zip       
+          zip_file: vocabularies-v_id-get.zip       
 
       - name: vocabularies id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r vocabularies-id-put.zip vocabularies/id/put/index.js node_modules
+          args: zip -qq -r vocabularies-v_id-put.zip vocabularies/v_id/put/index.js node_modules
       - name: vocabularies id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -665,12 +665,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: vocabularies-s-vocabularies-v_id-put
-          zip_file: vocabularies-id-put.zip       
+          zip_file: vocabularies-v_id-put.zip       
 
       - name: vocabularies id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r vocabularies-id-delete.zip vocabularies/id/delete/index.js node_modules
+          args: zip -qq -r vocabularies-v_id-delete.zip vocabularies/v_id/delete/index.js node_modules
       - name: vocabularies id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -678,7 +678,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: vocabularies-s-vocabularies-v_id-delete
-          zip_file: vocabularies-id-delete.zip                              
+          zip_file: vocabularies-v_id-delete.zip                              
 
       # tags
       - name: tags get lambda deploy zip
@@ -710,7 +710,7 @@ jobs:
       - name: tags id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tags-id-get.zip tags/id/get/index.js node_modules
+          args: zip -qq -r tags-t_id-get.zip tags/t_id/get/index.js node_modules
       - name: tags id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -718,12 +718,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tags-s-tags-t_id-get
-          zip_file: tags-id-get.zip       
+          zip_file: tags-t_id-get.zip       
 
       - name: tags id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tags-id-put.zip tags/id/put/index.js node_modules
+          args: zip -qq -r tags-t_id-put.zip tags/t_id/put/index.js node_modules
       - name: tags id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -731,12 +731,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tags-s-tags-t_id-put
-          zip_file: tags-id-put.zip       
+          zip_file: tags-t_id-put.zip       
 
       - name: tags id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tags-id-delete.zip tags/id/delete/index.js node_modules
+          args: zip -qq -r tags-t_id-delete.zip tags/t_id/delete/index.js node_modules
       - name: tags id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -744,7 +744,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tags-s-tags-t_id-delete
-          zip_file: tags-id-delete.zip                              
+          zip_file: tags-t_id-delete.zip                              
 
       # links
       - name: links get lambda deploy zip
@@ -776,7 +776,7 @@ jobs:
       - name: links id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r links-id-get.zip links/id/get/index.js node_modules
+          args: zip -qq -r links-l_id-get.zip links/l_id/get/index.js node_modules
       - name: links id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -784,12 +784,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: links-s-links-l_id-get
-          zip_file: links-id-get.zip       
+          zip_file: links-l_id-get.zip       
 
       - name: links id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r links-id-put.zip links/id/put/index.js node_modules
+          args: zip -qq -r links-l_id-put.zip links/l_id/put/index.js node_modules
       - name: links id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -797,12 +797,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: links-s-links-l_id-put
-          zip_file: links-id-put.zip       
+          zip_file: links-l_id-put.zip       
 
       - name: links id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r links-id-delete.zip links/id/delete/index.js node_modules
+          args: zip -qq -r links-l_id-delete.zip links/l_id/delete/index.js node_modules
       - name: links id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -810,7 +810,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: links-s-links-l_id-delete
-          zip_file: links-id-delete.zip                              
+          zip_file: links-l_id-delete.zip                              
 
       # videos
       - name: videos get lambda deploy zip
@@ -842,7 +842,7 @@ jobs:
       - name: videos id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r videos-id-get.zip videos/id/get/index.js node_modules
+          args: zip -qq -r videos-v_id-get.zip videos/v_id/get/index.js node_modules
       - name: videos id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -850,12 +850,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: videos-s-videos-v_id-get
-          zip_file: videos-id-get.zip       
+          zip_file: videos-v_id-get.zip       
 
       - name: videos id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r videos-id-put.zip videos/id/put/index.js node_modules
+          args: zip -qq -r videos-v_id-put.zip videos/v_id/put/index.js node_modules
       - name: videos id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -863,12 +863,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: videos-s-videos-v_id-put
-          zip_file: videos-id-put.zip       
+          zip_file: videos-v_id-put.zip       
 
       - name: videos id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r videos-id-delete.zip videos/id/delete/index.js node_modules
+          args: zip -qq -r videos-v_id-delete.zip videos/v_id/delete/index.js node_modules
       - name: videos id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -876,7 +876,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: videos-s-videos-v_id-delete
-          zip_file: videos-id-delete.zip                              
+          zip_file: videos-v_id-delete.zip                              
 
       # tools
       - name: tools get lambda deploy zip
@@ -908,7 +908,7 @@ jobs:
       - name: tools id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tools-id-get.zip tools/id/get/index.js node_modules
+          args: zip -qq -r tools-t-id-get.zip tools/t_id/get/index.js node_modules
       - name: tools id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -916,12 +916,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tools-s-tools-t_id-get
-          zip_file: tools-id-get.zip       
+          zip_file: tools-t-id-get.zip       
 
       - name: tools id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tools-id-put.zip tools/id/put/index.js node_modules
+          args: zip -qq -r tools-t-id-put.zip tools/t_id/put/index.js node_modules
       - name: tools id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -929,12 +929,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tools-s-tools-t_id-put
-          zip_file: tools-id-put.zip       
+          zip_file: tools-t-id-put.zip       
 
       - name: tools id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r tools-id-delete.zip tools/id/delete/index.js node_modules
+          args: zip -qq -r tools-t-id-delete.zip tools/t_id/delete/index.js node_modules
       - name: tools id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -942,6 +942,6 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tools-s-tools-t_id-delete
-          zip_file: tools-id-delete.zip                              
+          zip_file: tools-t-id-delete.zip                              
 
 
