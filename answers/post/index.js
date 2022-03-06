@@ -11,7 +11,7 @@ exports.handler = vandium.generic()
     database : process.env.database
     });
 
-    var sql = 'INSERT INTO blueprints(';
+    var sql = 'INSERT INTO answers(';
     
     var total_properties = Object.keys(event).length;
     
