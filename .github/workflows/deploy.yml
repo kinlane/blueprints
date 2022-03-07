@@ -446,7 +446,7 @@ jobs:
       - name: questions id get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r questions-id-get.zip questions/id/get/index.js node_modules
+          args: zip -qq -r questions-q_id-get.zip questions/q_id/get/index.js node_modules
       - name: questions id get lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -454,12 +454,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: questions-s-questions-q_id-get
-          zip_file: questions-id-get.zip       
+          zip_file: questions-q_id-get.zip       
 
       - name: questions id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r questions-id-put.zip questions/id/put/index.js node_modules
+          args: zip -qq -r questions-q_id-put.zip questions/q_id/put/index.js node_modules
       - name: questions id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -467,12 +467,12 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: questions-s-questions-q_id-put
-          zip_file: questions-id-put.zip       
+          zip_file: questions-q_id-put.zip       
 
       - name: questions id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r questions-id-delete.zip questions/id/delete/index.js node_modules
+          args: zip -qq -r questions-q_id-delete.zip questions/q_id/delete/index.js node_modules
       - name: questions id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -480,7 +480,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: questions-s-questions-q_id-delete
-          zip_file: questions-id-delete.zip                              
+          zip_file: questions-q_id-delete.zip                              
 
       # roles
       - name: roles get lambda deploy zip
