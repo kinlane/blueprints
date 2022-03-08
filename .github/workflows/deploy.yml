@@ -84,28 +84,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: blueprints-staging-blueprints-blueprint_id-delete
-          zip_file: blueprints-id-delete.zip                              
-
-      ## Contract Testing
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-          apiKey: ${{ secrets.postmanApiKey }}
-          collection: 12959542-bbb207a0-3973-49ca-8b45-cc59969e4d03
-          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2
-
-      ## Security Testing
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-          apiKey: ${{ secrets.postmanApiKey }}
-          collection: 12959542-acacd777-181e-45bc-93db-aa9acd334f9b
-          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2   
-
-      ## Governance Design
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-          apiKey: ${{ secrets.postmanApiKey }}
-          collection: 12959542-cc59ef12-c1d5-408f-8d1f-4ac85aa1b8a3
-          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2                 
+          zip_file: blueprints-id-delete.zip                                           
