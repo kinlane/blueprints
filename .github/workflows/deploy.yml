@@ -943,26 +943,3 @@ jobs:
           aws_region: us-east-1
           function_name: tools-s-tools-t_id-delete
           zip_file: tools-t-id-delete.zip                              
-  test:
-    docker:
-      - image: cimg/node:15.1
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      - run:
-          name: install packages
-          command: npm ci
-      - save_cache:
-          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-          paths:
-            - ~/.npm
-      - run:
-          name: Run Tests
-          command: npm run test
-
-workflows:
-  orb-free-workflow:
-    jobs:
-      - test
