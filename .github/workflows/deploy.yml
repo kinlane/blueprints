@@ -91,21 +91,21 @@ jobs:
       - uses: matt-ball/newman-action@master
         with:
           apiKey: ${{ secrets.postmanApiKey }}
-          collection: 514414-abe042ee-11ef-418a-8da4-398d8079e0a0
-          environment: 514414-dc6e95e0-b705-428d-ac1a-3368b1f7e472
+          collection: 12959542-bbb207a0-3973-49ca-8b45-cc59969e4d03
+          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2
 
       ## Security Testing
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
           apiKey: ${{ secrets.postmanApiKey }}
-          collection: 514414-5dd4d78f-eb05-4235-90e2-e954c7fbdd12
-          environment: 514414-dc6e95e0-b705-428d-ac1a-3368b1f7e472   
+          collection: 12959542-acacd777-181e-45bc-93db-aa9acd334f9b
+          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2   
 
       ## Governance Design
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
           apiKey: ${{ secrets.postmanApiKey }}
-          collection: 514414-9ea50050-5b74-4e72-8764-1c702d349296
-          environment: 514414-dc6e95e0-b705-428d-ac1a-3368b1f7e472                 
+          collection: 12959542-cc59ef12-c1d5-408f-8d1f-4ac85aa1b8a3
+          environment: 12959542-0d1a98dd-aced-429f-a3e0-5cb3113feef2                 
