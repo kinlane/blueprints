@@ -28,8 +28,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Blueprints'
-      security:
-      - api_key: []
       x-amazon-apigateway-integration:
         httpMethod: "POST"
         uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:blueprints-staging-blueprints-get/invocations"
@@ -72,6 +70,7 @@ paths:
         type: "aws"
   /blueprints/{blueprint_id}:
     get:
+      summary: Get Blueprint
       parameters:
       - name: "blueprint_id"
         in: "path"
@@ -100,6 +99,7 @@ paths:
         contentHandling: "CONVERT_TO_TEXT"
         type: "aws"
     put:
+      summary: Update Blueprint  
       parameters:
       - name: "blueprint_id"
         in: "path"
@@ -130,6 +130,7 @@ paths:
         contentHandling: "CONVERT_TO_TEXT"
         type: "aws"
     delete:
+      summary: Delete Blueprint
       parameters:
       - name: "blueprint_id"
         in: "path"

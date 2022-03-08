@@ -8,21 +8,10 @@
     "item": [
         {
             "name": "Get Blueprints",
-            "event": [
-                {
-                    "listen": "test",
-                    "script": {
-                        "id": "d3185209-c9cf-4a64-b71f-efb5f8a6d993",
-                        "exec": [
-                            "pm.test(\"Status code is 200\", function () {",
-                            "    pm.response.to.have.status(200);",
-                            "});"
-                        ],
-                        "type": "text/javascript"
-                    }
-                }
-            ],
             "id": "8a27ceb9-941d-4e00-828f-39a4fcb5169c",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
             "request": {
                 "method": "GET",
                 "header": [
@@ -56,20 +45,6 @@
         },
         {
             "name": "Add Blueprint",
-            "event": [
-                {
-                    "listen": "test",
-                    "script": {
-                        "id": "df89cff5-c9bd-4cec-9e1e-253ace550afe",
-                        "exec": [
-                            "pm.test(\"Status code is 200\", function () {",
-                            "    pm.response.to.have.status(200);",
-                            "});"
-                        ],
-                        "type": "text/javascript"
-                    }
-                }
-            ],
             "id": "05a0c1be-f542-4492-ad46-3bae530fd349",
             "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -278,7 +253,7 @@
         {
             "listen": "prerequest",
             "script": {
-                "id": "09ce1e71-a50d-447d-b8d1-bab620171089",
+                "id": "e2148f00-6195-475d-a795-cd72046817fa",
                 "type": "text/javascript",
                 "exec": [
                     ""
@@ -288,20 +263,12 @@
         {
             "listen": "test",
             "script": {
-                "id": "0e238dad-f4fb-4bf0-bf47-75d33c9069bf",
+                "id": "5e083549-fccc-467c-8f2e-75d0a8ee9efe",
                 "type": "text/javascript",
                 "exec": [
                     ""
                 ]
             }
-        }
-    ],
-    "variable": [
-        {
-            "id": "33d60e93-2d13-4a53-ac1e-8ec0d63c772a",
-            "key": "baseUrl",
-            "value": "https://lok608s285.execute-api.us-east-1.amazonaws.com/staging",
-            "type": "string"
         }
     ]
 }

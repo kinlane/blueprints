@@ -12,7 +12,7 @@
                 {
                     "listen": "test",
                     "script": {
-                        "id": "1c6cb33d-ee00-4cd2-9e52-8249bdf4e98e",
+                        "id": "bd02c6c3-4def-4453-a114-bef29658cca4",
                         "exec": [
                             "pm.test(\"Status code is 200\", function () {",
                             "    pm.response.to.have.status(200);",
@@ -24,26 +24,6 @@
             ],
             "id": "eb4aef79-b462-4709-9d90-8beb757daffb",
             "request": {
-                "auth": {
-                    "type": "apikey",
-                    "apikey": [
-                        {
-                            "key": "key",
-                            "value": "x-api-key",
-                            "type": "string"
-                        },
-                        {
-                            "key": "value",
-                            "value": "<API Key>",
-                            "type": "string"
-                        },
-                        {
-                            "key": "in",
-                            "value": "header",
-                            "type": "string"
-                        }
-                    ]
-                },
                 "method": "GET",
                 "header": [
                     {
@@ -52,7 +32,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/blueprints?limit=aliquip exercitation sed quis&page=aliquip exercitation sed quis",
+                    "raw": "{{base_url}}/blueprints?limit=25&page=0",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -62,11 +42,11 @@
                     "query": [
                         {
                             "key": "limit",
-                            "value": "aliquip exercitation sed quis"
+                            "value": "25"
                         },
                         {
                             "key": "page",
-                            "value": "aliquip exercitation sed quis"
+                            "value": "0"
                         }
                     ]
                 },
@@ -80,10 +60,10 @@
                 {
                     "listen": "test",
                     "script": {
-                        "id": "f1ec1e80-402e-4d8e-9f70-d81fd1cba84c",
+                        "id": "85d24395-0e0f-4474-9457-bc420828cc0d",
                         "exec": [
-                            "pm.test(\"Status code is 200\", function () {",
-                            "    pm.response.to.have.status(200);",
+                            "pm.test(\"Status code is 201\", function () {",
+                            "    pm.response.to.have.status(201);",
                             "});"
                         ],
                         "type": "text/javascript"
@@ -126,52 +106,7 @@
                 },
                 "description": "Adds a new blueprint."
             },
-            "response": [
-                {
-                    "id": "78ac1ea3-b6c8-4983-9827-6f60769c2b43",
-                    "name": "Single Blueprint",
-                    "originalRequest": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "description": "Added as a part of security scheme: apikey",
-                                "key": "x-api-key",
-                                "value": "<API Key>"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"name\": \"dolore nisi cillum Lorem dolor\",\n  \"version\": \"dolore nulla sunt est labore\",\n  \"description\": \"nisi occaecat\",\n  \"collection_id\": \"ea elit sunt\",\n  \"state\": \"do ut et\",\n  \"maturity\": \"dolore esse\",\n  \"discussion\": \"dolore\",\n  \"yaml\": \"aliqua\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        },
-                        "url": {
-                            "raw": "{{baseUrl}}/blueprints",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "blueprints"
-                            ]
-                        }
-                    },
-                    "status": "Created",
-                    "code": 201,
-                    "_postman_previewlanguage": "json",
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "cookie": [],
-                    "responseTime": null,
-                    "body": "{\n  \"name\": \"dolore nisi cillum Lorem dolor\",\n  \"version\": \"dolore nulla sunt est labore\",\n  \"description\": \"nisi occaecat\",\n  \"collection_id\": \"ea elit sunt\",\n  \"state\": \"do ut et\",\n  \"maturity\": \"dolore esse\",\n  \"discussion\": \"dolore\",\n  \"yaml\": \"aliqua\"\n}"
-                }
-            ]
+            "response": []
         },
         {
             "name": "Get Blueprint",
@@ -179,7 +114,7 @@
                 {
                     "listen": "test",
                     "script": {
-                        "id": "582af438-fcdd-4867-9998-67e4f04b268d",
+                        "id": "99fa7e6e-6fd6-46e8-8cc9-ea46376b72db",
                         "exec": [
                             "pm.test(\"Status code is 200\", function () {",
                             "    pm.response.to.have.status(200);",
@@ -224,10 +159,10 @@
                 {
                     "listen": "test",
                     "script": {
-                        "id": "3fe78f5e-4070-46a3-b11c-a4d62069bfd8",
+                        "id": "43da0cb1-6d68-4c43-8b9b-30081e56ac3e",
                         "exec": [
-                            "pm.test(\"Status code is 200\", function () {",
-                            "    pm.response.to.have.status(200);",
+                            "pm.test(\"Status code is 204\", function () {",
+                            "    pm.response.to.have.status(204);",
                             "});"
                         ],
                         "type": "text/javascript"
@@ -281,10 +216,10 @@
                 {
                     "listen": "test",
                     "script": {
-                        "id": "1a1d5f7d-8b27-486a-a472-efb085c44b99",
+                        "id": "cc178764-963b-4a48-ba3a-a5e8a3697e4d",
                         "exec": [
-                            "pm.test(\"Status code is 200\", function () {",
-                            "    pm.response.to.have.status(200);",
+                            "pm.test(\"Status code is 204\", function () {",
+                            "    pm.response.to.have.status(204);",
                             "});"
                         ],
                         "type": "text/javascript"
@@ -340,7 +275,7 @@
         {
             "listen": "prerequest",
             "script": {
-                "id": "2140721f-6f7f-4ba5-9e6b-692a27c76d68",
+                "id": "c6e354cd-5ef7-4dfe-ae45-1f633f697f83",
                 "type": "text/javascript",
                 "exec": [
                     ""
@@ -350,7 +285,7 @@
         {
             "listen": "test",
             "script": {
-                "id": "7eda338b-e596-480b-9a0e-214cba3bdb69",
+                "id": "07b4bea2-8849-4d80-84fc-210efd129654",
                 "type": "text/javascript",
                 "exec": [
                     ""
@@ -360,7 +295,7 @@
     ],
     "variable": [
         {
-            "id": "10f8f0ac-2255-40b2-b00e-7bd56a949e03",
+            "id": "a223d009-2cec-4122-a068-454f318859e7",
             "key": "baseUrl",
             "value": "https://lok608s285.execute-api.us-east-1.amazonaws.com/staging",
             "type": "string"
