@@ -58,7 +58,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: blueprints-staging-blueprints-blueprint_id-get
-          zip_file: blueprints-id-get.zip       
+          zip_file: blueprints-b_id-get.zip       
 
       - name: blueprints id put lambda deploy zip
         uses: kinlane/blueprints@main   
@@ -71,7 +71,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: blueprints-staging-blueprints-blueprint_id-put
-          zip_file: blueprints-id-put.zip       
+          zip_file: blueprints-b_id-put.zip       
 
       - name: blueprints id delete lambda deploy zip
         uses: kinlane/blueprints@main   
@@ -84,7 +84,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: blueprints-staging-blueprints-blueprint_id-delete
-          zip_file: blueprints-id-delete.zip                              
+          zip_file: blueprints-b_id-delete.zip                              
 
       # actions
       - name: actions get lambda deploy zip
