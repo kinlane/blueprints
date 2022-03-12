@@ -1,0 +1,304 @@
+{
+    "info": {
+        "_postman_id": "abe042ee-11ef-418a-8da4-398d8079e0a0",
+        "name": "Blueprints v1 - Contract Tests",
+        "description": "This is of the blueprints API.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Blueprints",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "bd02c6c3-4def-4453-a114-bef29658cca4",
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "eb4aef79-b462-4709-9d90-8beb757daffb",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/blueprints?limit=25&page=0",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints"
+                    ],
+                    "query": [
+                        {
+                            "key": "limit",
+                            "value": "25"
+                        },
+                        {
+                            "key": "page",
+                            "value": "0"
+                        }
+                    ]
+                },
+                "description": "Gets all blueprints."
+            },
+            "response": []
+        },
+        {
+            "name": "Add Blueprint",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "85d24395-0e0f-4474-9457-bc420828cc0d",
+                        "exec": [
+                            "pm.test(\"Status code is 201\", function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "98eff59e-b07b-42b6-99d6-0fbde33b4eff",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"dolore nisi cillum Lorem dolor\",\n  \"version\": \"dolore nulla sunt est labore\",\n  \"description\": \"nisi occaecat\",\n  \"collection_id\": \"ea elit sunt\",\n  \"state\": \"do ut et\",\n  \"maturity\": \"dolore esse\",\n  \"discussion\": \"dolore\",\n  \"yaml\": \"aliqua\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/blueprints",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints"
+                    ]
+                },
+                "description": "Adds a new blueprint."
+            },
+            "response": []
+        },
+        {
+            "name": "Get Blueprint",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "99fa7e6e-6fd6-46e8-8cc9-ea46376b72db",
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "82997779-5879-45c9-95c8-fe826b492a8c",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/blueprints/:blueprint_id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints",
+                        ":blueprint_id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "blueprint_id",
+                            "value": "22",
+                            "description": "(Required) "
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Blueprint",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "43da0cb1-6d68-4c43-8b9b-30081e56ac3e",
+                        "exec": [
+                            "pm.test(\"Status code is 204\", function () {",
+                            "    pm.response.to.have.status(204);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "166e0eeb-32b2-4608-86bf-1c6e601ac751",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"dolore nisi cillum Lorem dolor\",\n  \"version\": \"dolore nulla sunt est labore\",\n  \"description\": \"nisi occaecat\",\n  \"collection_id\": \"ea elit sunt\",\n  \"state\": \"do ut et\",\n  \"maturity\": \"dolore esse\",\n  \"discussion\": \"dolore\",\n  \"yaml\": \"aliqua\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/blueprints/:blueprint_id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints",
+                        ":blueprint_id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "blueprint_id",
+                            "value": "22",
+                            "description": "(Required) "
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Blueprint",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "cc178764-963b-4a48-ba3a-a5e8a3697e4d",
+                        "exec": [
+                            "pm.test(\"Status code is 204\", function () {",
+                            "    pm.response.to.have.status(204);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "d6f65459-ec70-4ca8-8c31-5253dce69bae",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/blueprints/:blueprint_id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints",
+                        ":blueprint_id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "blueprint_id",
+                            "value": "22",
+                            "description": "(Required) "
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "value",
+                "value": "{{x-api-key}}",
+                "type": "string"
+            },
+            {
+                "key": "key",
+                "value": "x-api-key",
+                "type": "string"
+            },
+            {
+                "key": "in",
+                "value": "header",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "c6e354cd-5ef7-4dfe-ae45-1f633f697f83",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "07b4bea2-8849-4d80-84fc-210efd129654",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "a223d009-2cec-4122-a068-454f318859e7",
+            "key": "baseUrl",
+            "value": "https://lok608s285.execute-api.us-east-1.amazonaws.com/staging",
+            "type": "string"
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+openapi: "3.0.0"
+info:
+  title: "Personas"
+  description: "This is of the personas API."
+  version: "2022-03-05T04:04:29Z"
+servers:
+- url: 
+paths:
+  /personas:
+    get:
+      summary: Get Personas
+      description: Gets all personas.         
+      parameters:
+      - name: "limit"
+        in: "query"
+        required: false
+        schema:
+          type: string        
+      - name: "page"
+        in: "query"
+        required: false
+        schema:
+          type: string         
+      responses:
+        '200':
+          description: 'All personas.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Personas'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:personas-staging-personas-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.querystring.page: "method.request.querystring.page"
+          integration.request.querystring.limit: "method.request.querystring.limit"
+        requestTemplates:
+          application/json: "{\n    \"page\" : \"$input.params('page')\",\n    \"\
+            limit\" : \"$input.params('limit')\"\n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    post:
+      summary: Add Persona
+      description: Adds a new persona.    
+      requestBody:
+        description: Persona
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Persona"
+      responses:
+        '201':
+          description: 'Single Persona'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Persona'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:personas-staging-personas-post/invocations"
+        responses:
+          default:
+            statusCode: "201"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+  /personas/{persona_id}:
+    get:
+      parameters:
+      - name: "persona_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '200':
+          description: 'Single Persona'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Persona'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:personas-staging-personas-persona_id-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.persona_id: "method.request.path.persona_id"
+        requestTemplates:
+          application/json: "{\n    \"persona_id\" : \"$input.params('persona_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    put:
+      parameters:
+      - name: "persona_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      requestBody:
+        description: Persona
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Persona"        
+      responses:
+        '204':
+          description: 'All personas.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:personas-staging-personas-persona_id-put/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.persona_id: "method.request.path.persona_id"
+        requestTemplates:
+          application/json: "{\n    \"persona_id\" : \"$input.params('persona_id')\"\
+            ,\n    \"body\" : $input.json('$') \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    delete:
+      parameters:
+      - name: "persona_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '204':
+          description: 'All personas.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:personas-staging-personas-persona_id-delete/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.persona_id: "method.request.path.persona_id"
+        requestTemplates:
+          application/json: "{\n    \"persona_id\" : \"$input.params('persona_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: "x-api-key"
+      in: header
+  schemas:
+    Personas:
+      type: array
+      items:
+        $ref: '#/components/schemas/Persona'      
+    Persona:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        version:
+          type: string          
+        description:
+          type: string
+        collection_id:
+          type: string
+security:
+  - api_key: []              

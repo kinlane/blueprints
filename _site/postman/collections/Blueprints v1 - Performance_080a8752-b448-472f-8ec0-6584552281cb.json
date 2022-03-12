@@ -1,0 +1,128 @@
+{
+    "info": {
+        "_postman_id": "9980114a-1bf8-4287-a695-212deb0601a6",
+        "name": "Blueprints v1 - Performance",
+        "description": "This is of the blueprints API.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Blueprints",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "id": "6d986227-aaf0-4dff-95b3-6a3c7a897415",
+                        "exec": [
+                            "pm.test(\"Response time is less than 300ms\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "id": "c63f403b-d214-46d5-a2da-c85a0509eca2",
+            "request": {
+                "auth": {
+                    "type": "apikey",
+                    "apikey": [
+                        {
+                            "key": "value",
+                            "value": "{{x-api-key}}",
+                            "type": "string"
+                        },
+                        {
+                            "key": "key",
+                            "value": "x-api-key",
+                            "type": "string"
+                        },
+                        {
+                            "key": "in",
+                            "value": "header",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/blueprints?limit=25&page=0",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "blueprints"
+                    ],
+                    "query": [
+                        {
+                            "key": "limit",
+                            "value": "25"
+                        },
+                        {
+                            "key": "page",
+                            "value": "0"
+                        }
+                    ]
+                },
+                "description": "Gets all blueprints."
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "value",
+                "value": "{{x-api-key}}",
+                "type": "string"
+            },
+            {
+                "key": "key",
+                "value": "x-api-key",
+                "type": "string"
+            },
+            {
+                "key": "in",
+                "value": "header",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "1654d3b6-24c2-4e26-9f58-3c59c935ac41",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "791a4fa4-8ee7-47fa-8b15-4ac6c43cfab1",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "192371e4-469e-4337-b918-3e00f66a4707",
+            "key": "baseUrl",
+            "value": "https://lok608s285.execute-api.us-east-1.amazonaws.com/staging",
+            "type": "string"
+        }
+    ]
+}

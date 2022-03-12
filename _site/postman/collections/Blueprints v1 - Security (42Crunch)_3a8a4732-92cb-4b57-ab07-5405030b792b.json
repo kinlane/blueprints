@@ -1,0 +1,1158 @@
+{
+    "info": {
+        "_postman_id": "22cce93b-e39a-435a-93b7-9fa093a94389",
+        "name": "Blueprints v1 - Security (42Crunch)",
+        "description": "# Overview\n\nThis Postman collection enables you to perform a static analysis your OpenAPI definitions with 42Crunch [API Security Audit](https://docs.42crunch.com/latest/content/concepts/api_contract_security_audit.htm), and explains the building blocks of security auditing with the [42Crunch API Security Platform](https://docs.42crunch.com/latest/content/home.htm). \n\nThe API definitions are audited against the [OpenAPI Specification (OAS) v3](https://spec.openapis.org/oas/v3.0.3) or [OAS v2](https://spec.openapis.org/oas/v2.0.html) (formerly Swagger) to check that the API definitions adhere to the OAS and to catch any security issues that your APIs might contain, such as: \n\n* Mass assignment issues due to loose request schemas \n* Data/exception leakage issues due to loose response schemas \n* Weak authentication schemes \n* Injection vulnerabilities due to loose parameter and request payloads definitions \n* Lack of resources control (overflow exposure, lack of rate limiting) \n\nFor examples on most common API vulnerabilities, see [OWASP API Security Top 10](https://apisecurity.io/encyclopedia/content/owasp/owasp-api-security-top-10.htm).\n\n# Create 42Crunch account and an API token\n\nThis Postman collection requires a 42Crunch account. If you don't have one, you can create one, free of charge, at https://platform.42crunch.com/login.\n\nUsing this collection also requires an API token so that Postman can authenticate to 42Crunch Platform. You can create API tokens under your own user profile in 42Crunch Platform:\n1. In your profile settings, click on **API tokens**. \n2. Click **Create New Token**, select **API Security Audit** in the token access rights, and generate the token. *Before closing the dialog*, copy the token value.\n\n![Creating a personal access token](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/create-api-token.gif)\n\n3. Add the copied token value as a ``42c_token`` [Postman environment variable](https://learning.postman.com/docs/sending-requests/managing-environments/). The Postman collection uses the ``42c_token`` variable when it authenticates to 42Crunch Platform. Here, an environment ``platform.42crunch.com`` containing the token environment variable is created.\n\n![Add the token to a Postman environment](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/add-token.gif)\n\nYou are now all set to start using the Postman collection.\n\n# Select the API contract to audit\n\nThere are two different ways to create an API on 42Crunch Platform with Postman.\n\n## From a Postman API\n\nIf you have uploaded an OpenAPI JSON schema to Postman, you can select it to be uploaded to 42Crunch Platform, using both Postman and 42Crunch APIs.\n\nYou need to set two environment variables:\n1. ``postman_api_key`` to a valid Postman API key (see [Generating a Postman API key](https://learning.postman.com/docs/developer/intro-api/)).\n2. ``apiId``, the Postman API id that you wish to upload to 42Crunch Platform (you may retrieve an API id through [Get all APIs](https://www.postman.com/postman/workspace/postman-public-workspace/request/12959542-985fb6ff-9e0f-4afb-a454-fd29a00d2cfe)).\n\nThen, running the **Create an API (from Postman schema)** request will retrieve the API schema from Postman's API and upload it to 42Crunch Platform. By default, the first schema of the latest version of the API will be uploaded. No schema validation is done -- the schema is assumed to be OpenAPI in JSON format.\n\nOptionally, you may also set the following environment variables:\n1. ``apiVersionId`` to select a specific version of the API to retrieve.\n2. ``schemaId`` to select a specific schema.\n\n## From a local OpenAPI file\n\n1. Select **Create an API** request, and go to the **Body** tab. You can see multiple parameters.\n2. Go to the parameter ``specfile``. This specfile parameter indicates which OpenAPI definition to audit. \n3. Click **Select files** and choose the API definition file you want to audit. The file must in JSON format. Both OAS v2 and v3.0 are supported.\n\n![Select the API contract to audit](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/select-oas.gif)\n\n# Run the Postman collection\n\nYou can use Postman Collection Runner to run a sequence of requests to 42Crunch Platform.\n1. Make sure you have selected an API contract to audit, then launch the Postman [Collection Runner](https://learning.postman.com/docs/running-collections/intro-to-collection-runs/).\n2. Select the \"OAS Security Testing with 42Crunch\" Postman collection, and the appropriate environment (for example, ``platform.42crunch.com``).\n3. Run the collection. \n\n![Select the API contract to audit](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/collection-runner.gif)\n\nPostman now executes the following API calls: \n1. Creating an API Collection. APIs are grouped in API collections in 42Crunch Platform to create meaningful units that are easier to manage than keeping track of individual APIs.\n2. Importing the selected API contract into the API collection. Upon import, API Security Audit automatically runs to check that the API definition is a valid OpenAPI definition and how good and secure your API contract is.\n3. Retrieving the audit report. \n\nOnce Postman is finished, you can see the audit score reflecting the quality of your API definition, as well as how many issues Security Audit found.\n\n![View the audit score and the number or errors](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/audit-score.png)\n\n# Visualize a simplified audit report\n\nA detailed audit report describing the locations and details of the issues in your API definition, as well as their suggested remediations, is available in the 42Crunch Platform. However, you can use the Postman visualization tool to view a more basic audit report directly in Postman.\n\n1. After creating an API collection and importing the API contract (either through the Collection Runner or manually), in Postman, click the request **Retrieve and visualize an API's assessment report**. \n2. On the **Params** tab, go to the parameter ``api``, and either specify an API id value manually, or leave the value as ``{{42c_api_id}}`` to use the latest API you uploaded through Postman. \n3. Click **Send**, and go to the **Visualize** tab.\n\n![Visualize the report](https://raw.githubusercontent.com/42Crunch/resources/master/PostmanIntegration/assessment-report.gif)\n\n\n## Support\n\nIf you have any questions or issues, you can reach our support team on:\n\n* Web: https://support.42crunch.com\n* Email: support@42crunch.com",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1.Create a collection",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "id": "28a4035c-717d-40d6-b773-0b045462c679"
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "let response = pm.response.json();",
+                            "",
+                            "pm.test(\"Status test\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    pm.environment.set(\"42c_collection_uuid\", response.desc.id);",
+                            "});",
+                            "",
+                            "if (pm.response.code == 401 && response.code == 102) {",
+                            "    console.log(\"Invalid auth token. You may create a new one at: https://\" + pm.environment.get(\"baseUrl\") + \"/settings/tokens\");",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "id": "7b65a8a8-0149-411a-abbb-9efa6b2ec714"
+                    }
+                }
+            ],
+            "id": "9361b0fe-4e1e-4f78-8c9b-6bc21b836ffa",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\":\"Postman {{$randomInt}}\",\"isShared\":false,\"isSharedWrite\":false}"
+                },
+                "url": {
+                    "raw": "{{42c_url}}/api/v1/collections",
+                    "host": [
+                        "{{42c_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "collections"
+                    ]
+                },
+                "description": "Create a new API Collection"
+            },
+            "response": [
+                {
+                    "id": "0a6d48cd-9b74-4473-91cc-485b4b7eaf75",
+                    "name": "A successful response.",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{42c_url}}/api/v1/collections",
+                            "host": [
+                                "{{42c_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "collections"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"desc\": {\n  \"name\": \"Collection Created\",\n  \"isShared\": true\n },\n \"summary\": {\n  \"org\": {\n   \"name\": \"Postman\"\n  },\n  \"read\": true,\n  \"write\": true,\n  \"apis\": 1\n }\n}"
+                },
+                {
+                    "id": "ade8f03c-edd6-4f73-a9ad-e7d2d14b5d6e",
+                    "name": "Forbidden",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/collections",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "collections"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "d2e16915-95eb-4430-9acc-6c21522c3e31",
+                    "name": "Returned when the resource does not exist.",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/collections",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "collections"
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "00045e38-519a-4160-bbe1-73ca5fca7112",
+                    "name": "Unauthorized",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/collections",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "collections"
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                }
+            ]
+        },
+        {
+            "name": "2.Create an API",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "let response = pm.response.json();",
+                            "",
+                            "pm.test(\"Status test\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    pm.environment.set(\"42c_api_uuid\", response.desc.id);",
+                            "});",
+                            "",
+                            "if (pm.response.code == 401 && response.code == 102) {",
+                            "    console.log(\"Invalid auth token. You may create a new one at: https://\" + pm.variables.get(\"42c_url\") + \"/settings/tokens\");",
+                            "}",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "id": "7909d8a1-82a6-4394-9376-6858891d55e7"
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "function apiSchemaRead(err, res) {",
+                            "    if (!err) {",
+                            "        /* Set the retrieved API schema as a b64 encoded local variable */",
+                            "        pm.variables.set(\"specfile\", btoa(res.json().schema.schema))",
+                            "    }",
+                            "    else {",
+                            "        console.error(\"Could not retrieve Postman's API schema. If you have set `apiVersionId` and `apiSchemaId` environment variables, verify them.\")",
+                            "    }",
+                            "}",
+                            "",
+                            "function apiRead(err, res) {",
+                            "    if (!err) {",
+                            "        json = res.json()",
+                            "",
+                            "        /* Retrieve the last version in the array */",
+                            "        last = json.api.versions[json.api.versions.length - 1]",
+                            "        pm.variables.set(\"apiVersionId\", pm.environment.get(\"apiVersionId\"))",
+                            "        pm.variables.set(\"schemaId\", pm.environment.get(\"apiSchemaId\"))",
+                            "",
+                            "        /* If a environment apiVersionId was defined, use this one, else use the last one from the versions array */",
+                            "        if (!pm.variables.get(\"apiVersionId\")) {",
+                            "            pm.variables.set(\"apiVersionId\", last.id)",
+                            "        }",
+                            "",
+                            "        /* If an environment schemaId was defined, use this one, else retrieve the last one from the schemas array */",
+                            "        if (!pm.variables.get(\"schemaId\")) {",
+                            "            pm.variables.set(\"schemaId\", last.schemas[last.schemas.length - 1].id)          ",
+                            "        }",
+                            "",
+                            "        pm.variables.set(\"pm_api_name\", json.api.name)",
+                            "",
+                            "        /* Retrieve the corresponding API schema */",
+                            "        pm.sendRequest({url: 'https://api.getpostman.com/apis/' + pm.environment.get(\"apiId\") + '/versions/' + pm.variables.get(\"apiVersionId\") + '/schemas/' + pm.variables.get(\"schemaId\"),",
+                            "                method: 'GET',",
+                            "                header: \"x-api-key:\" + pm.environment.get(\"postman_api_key\")},",
+                            "                apiSchemaRead)",
+                            "    }",
+                            "    else {",
+                            "        console.error(\"Could not retrieve Postman's API. Verify you have set the `apiId` environment variable.\")",
+                            "    }",
+                            "}",
+                            "",
+                            "/* Retrieve API name and schema*/",
+                            "pm.sendRequest({url: 'https://api.getpostman.com/apis/' + pm.environment.get(\"apiId\"),",
+                            "    method: 'GET',",
+                            "    header: \"x-api-key:\" + pm.environment.get(\"postman_api_key\")},",
+                            "    apiRead)",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "id": "dcd31d9f-38b0-4802-9c75-022708071014"
+                    }
+                }
+            ],
+            "id": "78972818-724a-451a-b60d-b33070e72662",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"cid\": \"{{42c_collection_uuid}}\", \"name\": \"{{pm_api_name}}\", \"specfile\": \"{{specfile}}\"}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{42c_url}}/api/v2/apis",
+                    "host": [
+                        "{{42c_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v2",
+                        "apis"
+                    ]
+                },
+                "description": "In order to create an API, you must specify a collection ID, a display name and an OAS specfile. Note that this name is not used as the API ID, a UUID is generated instead. You must use this UUID to work with APIs.\nOn first import, and assuming the OAS file is valid, the API is automatically audited."
+            },
+            "response": [
+                {
+                    "id": "77bc9cd7-de05-43fe-9cc9-71a1a3c2c8b9",
+                    "name": "A successful response.",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "cid",
+                                    "value": "<string>",
+                                    "description": "CollectionID"
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "<string>",
+                                    "description": "API Display Name"
+                                },
+                                {
+                                    "key": "specfile",
+                                    "value": "<binary>",
+                                    "description": "OAS file  "
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{42c_url}}/api/v2/apis",
+                            "host": [
+                                "{{42c_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v2",
+                                "apis"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"desc\": {\n  \"name\": \"Postman\",\n  \"specfile\": \"h3423k2nfnn333jalkdjf3333423fhh00908sd\"\n },\n \"assessment\": {\n  \"isProcessed\": true,\n  \"last\": \"<string>\",\n  \"error\": true,\n  \"isValid\": true,\n  \"grade\": \"5\",\n  \"numErrors\": \"none\",\n  \"numLows\": \"none\",\n  \"numMediums\": \"none\",\n  \"numHighs\": \"none\",\n  \"numCriticals\": \"none\",\n  \"oasVersion\": \"3.1\"\n },\n \"scan\": {\n  \"isProcessed\": true,\n  \"last\": \"Postman\",\n  \"numHighs\": 0,\n  \"numMediums\": 0,\n  \"numLows\": 0\n },\n \"protect\": {\n  \"isProcessed\": true,\n  \"numContainers\": 1\n }\n}"
+                },
+                {
+                    "id": "15d04e49-88f9-4cb8-9311-ee37b3d641f5",
+                    "name": "Unauthorized",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "cid",
+                                    "value": "<string>",
+                                    "description": "CollectionID"
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "<string>",
+                                    "description": "API Display Name"
+                                },
+                                {
+                                    "key": "specfile",
+                                    "value": "<binary>",
+                                    "description": "OAS file  "
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis"
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "f6e6a1d2-84e6-4df5-831d-6ef4d19b4131",
+                    "name": "Forbidden",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "cid",
+                                    "value": "<string>",
+                                    "description": "CollectionID"
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "<string>",
+                                    "description": "API Display Name"
+                                },
+                                {
+                                    "key": "specfile",
+                                    "value": "<binary>",
+                                    "description": "OAS file  "
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                }
+            ]
+        },
+        {
+            "name": "3. Prepare audit",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "var template = `",
+                            "    <script src=\"https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js\"></script>",
+                            " ",
+                            "    <style type=\"text/css\">",
+                            "        .issues td {",
+                            "            border-top: 1px solid rgb(222,226,230);",
+                            "        }",
+                            "        tr.issues:hover {",
+                            "            background: rgb(242,246,250);",
+                            "        }",
+                            "",
+                            "        span.severity-dot {",
+                            "            border-radius: 4px;",
+                            "            margin: 3px 3px 0 0;",
+                            "            padding: 0;",
+                            "            width: 15px;",
+                            "            height: 9px;",
+                            "            display: inline-block;",
+                            "            background-color: rgb(214, 214, 214);",
+                            "        }",
+                            "        .severity-dot .level {",
+                            "            background-color: rgb(214, 214, 214);",
+                            "        }",
+                            "",
+                            "        .first-2 {",
+                            "            background-color: rgb(248, 202, 28) !important;",
+                            "        }",
+                            "",
+                            "        .first-3, .second-3 {",
+                            "            background-color: rgb(255, 144, 52) !important;",
+                            "        }",
+                            "        .first-4, .second-4, .third-4 {",
+                            "            background-color: rgb(255, 147, 124) !important;",
+                            "        }",
+                            "",
+                            "        .first-5, .second-5, third-5, fourth-5 {",
+                            "            background-color: rgb(255, 144, 52) !important;",
+                            "        }",
+                            "",
+                            "        .text-small {",
+                            "            font-size: 0.8em;",
+                            "            margin-top: 0.3em;",
+                            "        }",
+                            "",
+                            "        .header {",
+                            "            background-color: rgb(41,34,70);",
+                            "            padding: 10px;",
+                            "            margin-bottom: 2em;",
+                            "        }",
+                            "",
+                            "        .api-security-audit-issues {",
+                            "            clear: both;",
+                            "            margin: 2em 0 0 2em;",
+                            "        }",
+                            "",
+                            "        #score-display {",
+                            "            position: relative;",
+                            "            margin: 0 auto 2em auto;",
+                            "            height: 200px !important;",
+                            "        }",
+                            "",
+                            "        .score {",
+                            "            position: absolute;",
+                            "            top: 0;",
+                            "            left: 0;",
+                            "            width: 100%;",
+                            "            height: 100%;",
+                            "            display: flex;",
+                            "            justify-content: center;",
+                            "            align-items: center;",
+                            "        }",
+                            "",
+                            "        .score span {",
+                            "            font-size: 3em;",
+                            "            font-weight: bold;",
+                            "        }",
+                            "",
+                            "        .summary {",
+                            "            margin-bottom: 2em;",
+                            "            padding-left: 2em;",
+                            "            display: flex;",
+                            "            flex-wrap: no-wrap;",
+                            "        }",
+                            "",
+                            "        .text {",
+                            "            margin-top: 2em;",
+                            "            padding-left: 2em;",
+                            "            font-size: 1.1em;",
+                            "            width: 100%;",
+                            "        }",
+                            "",
+                            "        #summary-left, #summary-right {",
+                            "            margin: 0;",
+                            "            overflow: hidden;",
+                            "            height: 200px !important;",
+                            "        }",
+                            "",
+                            "        #summary-left {",
+                            "            width: 200px !important;",
+                            "        }",
+                            "        #summary-right {",
+                            "            padding-left: 2em;",
+                            "            flex-grow: 1;",
+                            "        }",
+                            "",
+                            "        legend {",
+                            "            display: false;",
+                            "        }",
+                            "    </style>",
+                            "",
+                            "    <div class=\"header\">",
+                            "        <img src=\"https://platform.42crunch.com/assets/img/logo_light_sticky_2x.png\" class=\"logo\" alt=\"42Crunch\" width=\"130\">",
+                            "    </div>",
+                            "    <div class=\"summary\">",
+                            "        <div id=\"summary-left\">",
+                            "            <div id=\"score-display\">",
+                            "                <div class=\"score\"><span>{{response.assessment.score}}</span>&nbsp;out of 100</div>",
+                            "                <canvas id=\"api-grade\" style=\"color: {{response.assessment.score_color}};\"></canvas>",
+                            "            </div>",
+                            "        </div>",
+                            "        <div id=\"summary-right\"><canvas id=\"bar-chart\"></canvas></div>",
+                            "",
+                            "    </div>",
+                            "    <div class=\"text\"><span>This is the audit score of your OpenAPI file that Security Audit calculated based on more than 200+ checks.<br />Read the full report on 42Crunch Platform: <a href=\"{{response.assessment.baseUrl}}/apis/{{response.assessment.aid}}/security-audit-report\">{{response.assessment.baseUrl}}/apis/{{response.assessment.aid}}/security-audit-report</a></span></div>",
+                            "",
+                            "    <table class=\"api-security-audit-issues\">",
+                            "        <tr>",
+                            "            <th>Severity</th>",
+                            "            <th>Occurences</th>",
+                            "            <th>Error message</th>",
+                            "        </tr>",
+                            "        ",
+                            "",
+                            "",
+                            "        {{#each response.assessment.security.issues}}",
+                            "            <tr class=\"issues\" id=row_{{@key}} onClick=\"handleClick(this.id)\">",
+                            "                <td>",
+                            "                    <div class=\"severity\">",
+                            "                        <span class=\"severity-dot first-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot second-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot third-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot fourth-{{this.criticality}}\">&nbsp;</span>",
+                            "                    </div>",
+                            "                    <div class=\"text-small\">{{lookup ../response.assessment.criticalityString this.criticality}}</div>",
+                            "                </td>",
+                            "                <td>{{this.issueCounter}}</td>",
+                            "                <td id={{@key}}>{{this.description}}</td>",
+                            "            </tr>",
+                            "        {{/each}}",
+                            "",
+                            "        {{#each response.assessment.data.issues}}",
+                            "            <tr class=\"issues\" id=row_{{@key}} onClick=\"handleClick(this.id)\">",
+                            "                <td>",
+                            "                    <div class=\"severity\">",
+                            "                        <span class=\"severity-dot first-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot second-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot third-{{this.criticality}}\">&nbsp;</span><span class=\"severity-dot fourth-{{this.criticality}}\">&nbsp;</span>",
+                            "                    </div>",
+                            "                    <div class=\"text-small\">{{lookup ../response.assessment.criticalityString this.criticality}}</div>",
+                            "                </td>",
+                            "                <td>{{this.issueCounter}}</td>",
+                            "                <td id={{@key}}>{{this.description}}</td>",
+                            "            </tr>",
+                            "        {{/each}}",
+                            "    </table>",
+                            "    <script type=\"text/javascript\">",
+                            "",
+                            "",
+                            "        var ctx = document.getElementById(\"api-grade\");",
+                            "",
+                            "        var myDoughnutChart = new Chart(ctx, {",
+                            "            type: 'pie',",
+                            "                data: {",
+                            "                    datasets: [{",
+                            "                        data: [{{response.assessment.score}}, 100 - {{response.assessment.score}}],",
+                            "                        backgroundColor: [",
+                            "                            getComputedStyle(ctx).getPropertyValue('color'),",
+                            "                            'rgba(214, 214, 214, 1)',",
+                            "",
+                            "                        ],",
+                            "                        borderColor: [",
+                            "                            'rgba(255,255,255,1)',",
+                            "                        ],",
+                            "                        borderWidth: 3",
+                            "                    }]",
+                            "                },",
+                            "                options: {",
+                            "                    maintainAspectRatio: false,",
+                            "                    cutout: \"75%\",",
+                            "                    responsive: true,",
+                            "                    plugins: {",
+                            "                        tooltip: {",
+                            "                            enabled: false,",
+                            "                        },",
+                            "                    }",
+                            "                }",
+                            "        });",
+                            "",
+                            "        Chart.defaults.plugins.legend.display = false;",
+                            "        var ctx = document.getElementById(\"bar-chart\");",
+                            "",
+                            "        const labels = [\"info\", \"low\", \"medium\", \"high\", \"critical\"]",
+                            "        var myBarChart = new Chart(ctx, {",
+                            "            type: 'bar',",
+                            "                data: {",
+                            "                    labels: labels,",
+                            "                    datasets: [{",
+                            "                        label: \"dataset\",",
+                            "                        data: [{{response.attr.data.numInfos}}, {{response.attr.data.numLows}},",
+                            "                            {{response.attr.data.numMediums}}, {{response.attr.data.numHighs}},",
+                            "                            {{response.attr.data.numCriticals}}],",
+                            "                        backgroundColor: [",
+                            "                            'rgb(214, 214, 214)',",
+                            "                            'rgb(248, 202, 28)',",
+                            "                            'rgb(255, 144, 52)',",
+                            "                            'rgb(255, 147, 124)',",
+                            "                            'rgb(255, 147, 124)',",
+                            "                        ],",
+                            "                        borderColor: [",
+                            "                        'rgb(255, 255, 255)',",
+                            "                        'rgb(255, 255, 255)',",
+                            "                        'rgb(255, 255, 255)',",
+                            "                        'rgb(255, 255, 255)',",
+                            "                        'rgb(255, 255, 255)'",
+                            "                        ],",
+                            "                        borderWidth: 0",
+                            "                    }]",
+                            "                    },",
+                            "                options: {",
+                            "                    responsive: true,",
+                            "                    maintainAspectRatio: false,",
+                            "                    plugins: {",
+                            "                        tooltip: {",
+                            "                            enabled: false,",
+                            "                        },",
+                            "                    }",
+                            "                }",
+                            "        });",
+                            "    </script>",
+                            "`;",
+                            "",
+                            "",
+                            "let response = pm.response.json()",
+                            "if (response.enc === \"base64\" && response.type === \"JSON\") {",
+                            "    response.assessment = JSON.parse(atob(response.data));",
+                            "    response.assessment.criticalityString = [\"Undef\", \"Info\", \"Low\", \"Medium\", \"High\", \"Critical\"];",
+                            "    response.assessment.score = Math.round(response.assessment.score);",
+                            "    response.assessment.baseUrl = pm.variables.get(\"42c_url\");",
+                            "    response.assessment.aid = pm.environment.get(\"42c_api_uuid\")",
+                            "    if (response.assessment.score <= 50) { response.assessment.score_color = \"#e2436a\" }",
+                            "    else if (response.assessment.score <= 75) { response.assessment.score_color = \"#ff9034\" }",
+                            "    else { response.assessment.score_color = \"#28a745\" }",
+                            "    console.log(response.assessment)",
+                            "}",
+                            "",
+                            "pm.visualizer.set(template, {",
+                            "    response: response",
+                            "});",
+                            "pm.test(\"Status test\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"API security score is \" + response.assessment.score + \"/100. \" + response.attr.data.numErrors + \" error(s) have been found in the API specification.\", function() { pm.expect(response.assessment.score).to.be.above(74); });",
+                            "",
+                            "if (pm.response.code == 403 && response.code == 101) {",
+                            "    console.log(\"Invalid auth token. You may create a new one at: https://\" + pm.variables.get(\"42c_url\") + \"/settings/tokens\");",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "id": "6615cef6-7624-47e4-8266-3eac67cc0eca"
+                    }
+                }
+            ],
+            "id": "3493356c-0fb6-4be1-83ab-9518c384f9e9",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{42c_url}}/api/v1/apis/:id/assessmentreport",
+                    "host": [
+                        "{{42c_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "apis",
+                        ":id",
+                        "assessmentreport"
+                    ],
+                    "query": [
+                        {
+                            "key": null,
+                            "value": "",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "52af7a29-a37c-4523-8e92-443361164f60",
+                            "key": "id",
+                            "value": "{{42c_api_uuid}}",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "description": "This operation returns the latest audit report. The audit contains metadata plus the report in JSON format (base64 encoded)."
+            },
+            "response": [
+                {
+                    "id": "977b2c26-13f6-4d41-ac8b-34e3f23fdbbb",
+                    "name": "A successful response.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assessmentreport",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assessmentreport"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"tid\": \"<string>\",\n \"aid\": \"<string>\",\n \"cid\": \"<string>\",\n \"date\": \"<string>\",\n \"data\": \"<byte>\",\n \"type\": \"JSON\",\n \"enc\": \"<string>\",\n \"attr\": {\n  \"data\": \"<object>\"\n }\n}"
+                },
+                {
+                    "id": "c81070b3-6475-452f-9b4e-eaa1b4310235",
+                    "name": "Returned when the resource does not exist.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assessmentreport",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assessmentreport"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "59d4a449-079d-4c4d-8d67-c23de7f94830",
+                    "name": "Forbidden",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assessmentreport",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assessmentreport"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "da498bd5-30a4-470e-a751-9997df13645d",
+                    "name": "Unauthorized",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assessmentreport",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assessmentreport"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                }
+            ]
+        },
+        {
+            "name": "4. Trigger Audit",
+            "id": "2728f8f7-246d-483f-9c01-dfe2516b794f",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{42c_url}}/api/v1/apis/:id/assess",
+                    "host": [
+                        "{{42c_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "apis",
+                        ":id",
+                        "assess"
+                    ],
+                    "variable": [
+                        {
+                            "id": "cc11a0aa-a9b3-4af8-8e00-6e9d53cfd534",
+                            "key": "id",
+                            "value": "{{42c_api_uuid}}",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "description": "Execute security assessment of the OAS File attached to the API"
+            },
+            "response": [
+                {
+                    "id": "abd92123-a2fe-471a-b175-25607214e278",
+                    "name": "A successful response.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assess",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assess"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"id\": \"<string>\",\n \"success\": \"<boolean>\"\n}"
+                },
+                {
+                    "id": "f3cce2b4-1be6-4dd6-8b85-e232240a7f21",
+                    "name": "Returned when the resource does not exist.",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assess",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assess"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "fa233026-671b-49b7-840b-8bb3d807cb7c",
+                    "name": "Forbidden",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assess",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assess"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                },
+                {
+                    "id": "bce36a7f-637e-4484-b11d-f6d7f44411fa",
+                    "name": "Unauthorized",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/apis/:id/assess",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "apis",
+                                ":id",
+                                "assess"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"error\": \"<string>\",\n \"message\": \"<string>\",\n \"code\": \"<integer>\",\n \"details\": [\n  \"<object>\",\n  \"<object>\"\n ]\n}"
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "value",
+                "value": "{{x-api-key}}",
+                "type": "string"
+            },
+            {
+                "key": "key",
+                "value": "X-API-KEY",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "68d0069e-6af0-4818-846b-61de26ffe3d0",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "00c9ab4f-4bbc-47a4-8fb9-476f3e8221a0",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ]
+}

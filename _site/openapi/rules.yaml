@@ -1,0 +1,187 @@
+openapi: "3.0.0"
+info:
+  title: "Rules"
+  description: "This is of the rules API."
+  version: "2022-03-05T04:04:29Z"
+servers:
+- url: 
+paths:
+  /rules:
+    get:
+      summary: Get Rules
+      description: Gets all rules.         
+      parameters:
+      - name: "limit"
+        in: "query"
+        required: false
+        schema:
+          type: string        
+      - name: "page"
+        in: "query"
+        required: false
+        schema:
+          type: string         
+      responses:
+        '200':
+          description: 'All rules.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rules'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:rules-staging-rules-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.querystring.page: "method.request.querystring.page"
+          integration.request.querystring.limit: "method.request.querystring.limit"
+        requestTemplates:
+          application/json: "{\n    \"page\" : \"$input.params('page')\",\n    \"\
+            limit\" : \"$input.params('limit')\"\n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    post:
+      summary: Add Rule
+      description: Adds a new rule.    
+      requestBody:
+        description: Rule
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Rule"
+      responses:
+        '201':
+          description: 'Single Rule'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:rules-staging-rules-post/invocations"
+        responses:
+          default:
+            statusCode: "201"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+  /rules/{rule_id}:
+    get:
+      parameters:
+      - name: "rule_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '200':
+          description: 'Single Rule'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:rules-staging-rules-rule_id-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.rule_id: "method.request.path.rule_id"
+        requestTemplates:
+          application/json: "{\n    \"rule_id\" : \"$input.params('rule_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    put:
+      parameters:
+      - name: "rule_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      requestBody:
+        description: Rule
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Rule"        
+      responses:
+        '204':
+          description: 'All rules.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:rules-staging-rules-rule_id-put/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.rule_id: "method.request.path.rule_id"
+        requestTemplates:
+          application/json: "{\n    \"rule_id\" : \"$input.params('rule_id')\"\
+            ,\n    \"body\" : $input.json('$') \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    delete:
+      parameters:
+      - name: "rule_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '204':
+          description: 'All rules.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:rules-staging-rules-rule_id-delete/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.rule_id: "method.request.path.rule_id"
+        requestTemplates:
+          application/json: "{\n    \"rule_id\" : \"$input.params('rule_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: "x-api-key"
+      in: header
+  schemas:
+    Rules:
+      type: array
+      items:
+        $ref: '#/components/schemas/Rule'      
+    Rule:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        version:
+          type: string          
+        slug:
+          type: string
+        summary:
+          type: string          
+        collection_id:
+          type: string
+        github_url:
+          type: string
+        github_sha:
+          type: string                    
+security:
+  - api_key: []              

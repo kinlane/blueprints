@@ -1,0 +1,181 @@
+openapi: "3.0.0"
+info:
+  title: "Answers"
+  description: "This is of the answers API."
+  version: "2022-03-05T04:04:29Z"
+servers:
+- url: 
+paths:
+  /answers:
+    get:
+      summary: Get Answers
+      description: Gets all answers.         
+      parameters:
+      - name: "limit"
+        in: "query"
+        required: false
+        schema:
+          type: string        
+      - name: "page"
+        in: "query"
+        required: false
+        schema:
+          type: string         
+      responses:
+        '200':
+          description: 'All answers.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answers'
+      security:
+      - api_key: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:answers-staging-answers-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.querystring.page: "method.request.querystring.page"
+          integration.request.querystring.limit: "method.request.querystring.limit"
+        requestTemplates:
+          application/json: "{\n    \"page\" : \"$input.params('page')\",\n    \"\
+            limit\" : \"$input.params('limit')\"\n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    post:
+      summary: Add Answer
+      description: Adds a new answer.    
+      requestBody:
+        description: Answer
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Answer"
+      responses:
+        '201':
+          description: 'Single Answer'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:answers-staging-answers-post/invocations"
+        responses:
+          default:
+            statusCode: "201"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+  /answers/{answer_id}:
+    get:
+      parameters:
+      - name: "answer_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '200':
+          description: 'Single Answer'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:answers-staging-answers-answer_id-get/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.answer_id: "method.request.path.answer_id"
+        requestTemplates:
+          application/json: "{\n    \"answer_id\" : \"$input.params('answer_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    put:
+      parameters:
+      - name: "answer_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      requestBody:
+        description: Answer
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Answer"        
+      responses:
+        '204':
+          description: 'All answers.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:answers-staging-answers-answer_id-put/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.answer_id: "method.request.path.answer_id"
+        requestTemplates:
+          application/json: "{\n    \"answer_id\" : \"$input.params('answer_id')\"\
+            ,\n    \"body\" : $input.json('$') \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+    delete:
+      parameters:
+      - name: "answer_id"
+        in: "path"
+        required: true
+        schema:
+          type: string  
+      responses:
+        '204':
+          description: 'All answers.'
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:007596076917:function:answers-staging-answers-answer_id-delete/invocations"
+        responses:
+          default:
+            statusCode: "204"
+        requestParameters:
+          integration.request.path.answer_id: "method.request.path.answer_id"
+        requestTemplates:
+          application/json: "{\n    \"answer_id\" : \"$input.params('answer_id')\"\
+            \n}"
+        passthroughBehavior: "when_no_templates"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: "x-api-key"
+      in: header
+  schemas:
+    Answers:
+      type: array
+      items:
+        $ref: '#/components/schemas/Answer'      
+    Answer:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        version:
+          type: string          
+        description:
+          type: string
+        collection_id:
+          type: string
+security:
+  - api_key: []              
