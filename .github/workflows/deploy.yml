@@ -86,6 +86,20 @@ jobs:
           function_name: blueprints-staging-blueprints-blueprint_id-delete
           zip_file: blueprints-b_id-delete.zip                              
 
+      - name: blueprints id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-b_id-tags-post.zip blueprints/b_id/tags/post/index.js node_modules
+      - name: blueprints id tags post lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-s-blueprints-b_id-tags-post
+          zip_file: blueprints-b_id-tags-post.zip
+
+
       # actions
       - name: actions get lambda deploy zip
         uses: kinlane/blueprints@main   
