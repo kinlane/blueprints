@@ -117,28 +117,28 @@ jobs:
       - name: blueprints id areas id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-areas-t_id-put.zip blueprints/b_id/areas/t_id/put/index.js node_modules
+          args: zip -qq -r blueprints-b_id-areas-a_id-put.zip blueprints/b_id/areas/t_id/put/index.js node_modules
       - name: blueprints id areas id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-s-blueprints-b_id-areas-t_id-put
-          zip_file: blueprints-b_id-areas-t_id-put.zip          
+          function_name: blueprints-s-blueprints-b_id-areas-a_id-put
+          zip_file: blueprints-b_id-areas-a_id-put.zip          
 
       - name: blueprints id areas id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-areas-t_id-delete.zip blueprints/b_id/areas/t_id/delete/index.js node_modules
+          args: zip -qq -r blueprints-b_id-areas-a_id-delete.zip blueprints/b_id/areas/t_id/delete/index.js node_modules
       - name: blueprints id areas id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-s-blueprints-b_id-areas-t_id-delete
-          zip_file: blueprints-b_id-areas-t_id-delete.zip  
+          function_name: blueprints-s-blueprints-b_id-areas-a_id-delete
+          zip_file: blueprints-b_id-areas-a_id-delete.zip  
           
       # Blueprint Area Elements
       - name: blueprints id areas id elements get lambda deploy zip
