@@ -507,7 +507,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: landscape-s-landscape-l_id-delete
-          zip_file: landscapes-l_id-delete.zip                              
+          zip_file: landscapes-l_id-delete.zip 
+
+      - name: landscapes id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r landscapes-v_id-tags-get.zip landscapes/v_id/tags/get/index.js node_modules
+      - name: landscapes id tags get lambda deploy
+        uses: appleboy/lambda-landscape@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: landscapes-s-landscapes-v_id-tags-get
+          zip_file: landscapes-v_id-tags-get.zip
+
+      - name: landscapes id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r landscapes-v_id-tags-post.zip landscapes/v_id/tags/post/index.js node_modules
+      - name: landscapes id tags post lambda deploy
+        uses: appleboy/lambda-landscape@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: landscapes-s-landscapes-v_id-tags-post
+          zip_file: landscapes-v_id-tags-post.zip
+
+      - name: landscapes id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r landscapes-v_id-tags-t_id-delete.zip landscapes/v_id/tags/t_id/delete/index.js node_modules
+      - name: landscapes id tags id delete lambda deploy
+        uses: appleboy/lambda-landscape@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: landscapes-s-landscapes-v_id-tags-t_id-delete
+          zip_file: landscapes-v_id-tags-t_id-delete.zip                                       
 
       # personas
       - name: personas get lambda deploy zip
@@ -573,7 +612,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: personas-s-personas-p_id-delete
-          zip_file: personas-p_id-delete.zip                              
+          zip_file: personas-p_id-delete.zip     
+
+      - name: personas id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r personas-p_id-tags-get.zip personas/p_id/tags/get/index.js node_modules
+      - name: personas id tags get lambda deploy
+        uses: appleboy/lambda-persona@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: personas-s-personas-p_id-tags-get
+          zip_file: personas-p_id-tags-get.zip
+
+      - name: personas id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r personas-p_id-tags-post.zip personas/p_id/tags/post/index.js node_modules
+      - name: personas id tags post lambda deploy
+        uses: appleboy/lambda-persona@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: personas-s-personas-p_id-tags-post
+          zip_file: personas-p_id-tags-post.zip
+
+      - name: personas id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r personas-p_id-tags-t_id-delete.zip personas/p_id/tags/t_id/delete/index.js node_modules
+      - name: personas id tags id delete lambda deploy
+        uses: appleboy/lambda-persona@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: personas-s-personas-p_id-tags-t_id-delete
+          zip_file: personas-p_id-tags-t_id-delete.zip                                   
 
       # questions
       - name: questions get lambda deploy zip
@@ -639,7 +717,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: questions-s-questions-q_id-delete
-          zip_file: questions-q_id-delete.zip                              
+          zip_file: questions-q_id-delete.zip  
+
+      - name: questions id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r questions-q_id-tags-get.zip questions/q_id/tags/get/index.js node_modules
+      - name: questions id tags get lambda deploy
+        uses: appleboy/lambda-question@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: questions-s-questions-q_id-tags-get
+          zip_file: questions-q_id-tags-get.zip
+
+      - name: questions id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r questions-q_id-tags-post.zip questions/q_id/tags/post/index.js node_modules
+      - name: questions id tags post lambda deploy
+        uses: appleboy/lambda-question@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: questions-s-questions-q_id-tags-post
+          zip_file: questions-q_id-tags-post.zip
+
+      - name: questions id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r questions-q_id-tags-t_id-delete.zip questions/q_id/tags/t_id/delete/index.js node_modules
+      - name: questions id tags id delete lambda deploy
+        uses: appleboy/lambda-question@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: questions-s-questions-q_id-tags-t_id-delete
+          zip_file: questions-q_id-tags-t_id-delete.zip                                      
 
       # roles
       - name: roles get lambda deploy zip
@@ -705,7 +822,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: roles-s-roles-r_id-delete
-          zip_file: roles-r_id-delete.zip                              
+          zip_file: roles-r_id-delete.zip  
+
+      - name: roles id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r roles-r_id-tags-get.zip roles/r_id/tags/get/index.js node_modules
+      - name: roles id tags get lambda deploy
+        uses: appleboy/lambda-role@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: roles-s-roles-r_id-tags-get
+          zip_file: roles-r_id-tags-get.zip
+
+      - name: roles id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r roles-r_id-tags-post.zip roles/r_id/tags/post/index.js node_modules
+      - name: roles id tags post lambda deploy
+        uses: appleboy/lambda-role@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: roles-s-roles-r_id-tags-post
+          zip_file: roles-r_id-tags-post.zip
+
+      - name: roles id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r roles-r_id-tags-t_id-delete.zip roles/r_id/tags/t_id/delete/index.js node_modules
+      - name: roles id tags id delete lambda deploy
+        uses: appleboy/lambda-role@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: roles-s-roles-r_id-tags-t_id-delete
+          zip_file: roles-r_id-tags-t_id-delete.zip                                      
 
       # rules
       - name: rules get lambda deploy zip
@@ -771,7 +927,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: rules-s-rules-r_id-delete
-          zip_file: rules-r_id-delete.zip                              
+          zip_file: rules-r_id-delete.zip  
+
+      - name: rules id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r rules-r_id-tags-get.zip rules/r_id/tags/get/index.js node_modules
+      - name: rules id tags get lambda deploy
+        uses: appleboy/lambda-rule@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: rules-s-rules-r_id-tags-get
+          zip_file: rules-r_id-tags-get.zip
+
+      - name: rules id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r rules-r_id-tags-post.zip rules/r_id/tags/post/index.js node_modules
+      - name: rules id tags post lambda deploy
+        uses: appleboy/lambda-rule@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: rules-s-rules-r_id-tags-post
+          zip_file: rules-r_id-tags-post.zip
+
+      - name: rules id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r rules-r_id-tags-t_id-delete.zip rules/r_id/tags/t_id/delete/index.js node_modules
+      - name: rules id tags id delete lambda deploy
+        uses: appleboy/lambda-rule@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: rules-s-rules-r_id-tags-t_id-delete
+          zip_file: rules-r_id-tags-t_id-delete.zip                                      
 
       # vocabularies
       - name: vocabularies get lambda deploy zip
@@ -837,7 +1032,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: vocabularies-s-vocabularies-v_id-delete
-          zip_file: vocabularies-v_id-delete.zip                              
+          zip_file: vocabularies-v_id-delete.zip  
+
+      - name: vocabularies id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r vocabularies-v_id-tags-get.zip vocabularies/v_id/tags/get/index.js node_modules
+      - name: vocabularies id tags get lambda deploy
+        uses: appleboy/lambda-vocabulary@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: vocabularies-s-vocabularies-v_id-tags-get
+          zip_file: vocabularies-v_id-tags-get.zip
+
+      - name: vocabularies id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r vocabularies-v_id-tags-post.zip vocabularies/v_id/tags/post/index.js node_modules
+      - name: vocabularies id tags post lambda deploy
+        uses: appleboy/lambda-vocabulary@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: vocabularies-s-vocabularies-v_id-tags-post
+          zip_file: vocabularies-v_id-tags-post.zip
+
+      - name: vocabularies id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r vocabularies-v_id-tags-t_id-delete.zip vocabularies/v_id/tags/t_id/delete/index.js node_modules
+      - name: vocabularies id tags id delete lambda deploy
+        uses: appleboy/lambda-vocabulary@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: vocabularies-s-vocabularies-v_id-tags-t_id-delete
+          zip_file: vocabularies-v_id-tags-t_id-delete.zip                                      
 
       # tags
       - name: tags get lambda deploy zip
@@ -903,7 +1137,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tags-s-tags-t_id-delete
-          zip_file: tags-t_id-delete.zip                              
+          zip_file: tags-t_id-delete.zip 
+
+      - name: tags id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tags-t_id-tags-get.zip tags/t_id/tags/get/index.js node_modules
+      - name: tags id tags get lambda deploy
+        uses: appleboy/lambda-tag@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tags-s-tags-t_id-tags-get
+          zip_file: tags-t_id-tags-get.zip
+
+      - name: tags id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tags-t_id-tags-post.zip tags/t_id/tags/post/index.js node_modules
+      - name: tags id tags post lambda deploy
+        uses: appleboy/lambda-tag@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tags-s-tags-t_id-tags-post
+          zip_file: tags-t_id-tags-post.zip
+
+      - name: tags id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tags-t_id-tags-t_id-delete.zip tags/t_id/tags/t_id/delete/index.js node_modules
+      - name: tags id tags id delete lambda deploy
+        uses: appleboy/lambda-tag@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tags-s-tags-t_id-tags-t_id-delete
+          zip_file: tags-t_id-tags-t_id-delete.zip                                       
 
       # links
       - name: links get lambda deploy zip
@@ -969,7 +1242,47 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: links-s-links-l_id-delete
-          zip_file: links-l_id-delete.zip                              
+          zip_file: links-l_id-delete.zip   
+          
+      - name: links id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r links-l_id-tags-get.zip links/l_id/tags/get/index.js node_modules
+      - name: links id tags get lambda deploy
+        uses: appleboy/lambda-link@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: links-s-links-l_id-tags-get
+          zip_file: links-l_id-tags-get.zip
+
+      - name: links id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r links-l_id-tags-post.zip links/l_id/tags/post/index.js node_modules
+      - name: links id tags post lambda deploy
+        uses: appleboy/lambda-link@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: links-s-links-l_id-tags-post
+          zip_file: links-l_id-tags-post.zip
+
+      - name: links id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r links-l_id-tags-t_id-delete.zip links/l_id/tags/t_id/delete/index.js node_modules
+      - name: links id tags id delete lambda deploy
+        uses: appleboy/lambda-link@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: links-s-links-l_id-tags-t_id-delete
+          zip_file: links-l_id-tags-t_id-delete.zip
+
 
       # videos
       - name: videos get lambda deploy zip
@@ -1035,7 +1348,46 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: videos-s-videos-v_id-delete
-          zip_file: videos-v_id-delete.zip                              
+          zip_file: videos-v_id-delete.zip    
+
+      - name: videos id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r videos-v_id-tags-get.zip videos/v_id/tags/get/index.js node_modules
+      - name: videos id tags get lambda deploy
+        uses: appleboy/lambda-video@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: videos-s-videos-v_id-tags-get
+          zip_file: videos-v_id-tags-get.zip
+
+      - name: videos id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r videos-v_id-tags-post.zip videos/v_id/tags/post/index.js node_modules
+      - name: videos id tags post lambda deploy
+        uses: appleboy/lambda-video@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: videos-s-videos-v_id-tags-post
+          zip_file: videos-v_id-tags-post.zip
+
+      - name: videos id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r videos-v_id-tags-t_id-delete.zip videos/v_id/tags/t_id/delete/index.js node_modules
+      - name: videos id tags id delete lambda deploy
+        uses: appleboy/lambda-video@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: videos-s-videos-v_id-tags-t_id-delete
+          zip_file: videos-v_id-tags-t_id-delete.zip                                    
 
       # tools
       - name: tools get lambda deploy zip
@@ -1101,4 +1453,43 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: tools-s-tools-t_id-delete
-          zip_file: tools-t-id-delete.zip                              
+          zip_file: tools-t-id-delete.zip     
+
+      - name: tools id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tools-t_id-tags-get.zip tools/t_id/tags/get/index.js node_modules
+      - name: tools id tags get lambda deploy
+        uses: appleboy/lambda-tool@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tools-s-tools-t_id-tags-get
+          zip_file: tools-t_id-tags-get.zip
+
+      - name: tools id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tools-t_id-tags-post.zip tools/t_id/tags/post/index.js node_modules
+      - name: tools id tags post lambda deploy
+        uses: appleboy/lambda-tool@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tools-s-tools-t_id-tags-post
+          zip_file: tools-t_id-tags-post.zip
+
+      - name: tools id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r tools-t_id-tags-t_id-delete.zip tools/t_id/tags/t_id/delete/index.js node_modules
+      - name: tools id tags id delete lambda deploy
+        uses: appleboy/lambda-tool@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: tools-s-tools-t_id-tags-t_id-delete
+          zip_file: tools-t_id-tags-t_id-delete.zip                                   
