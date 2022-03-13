@@ -519,7 +519,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-l_id-tags-get
+          function_name: landscape-s-landscape-l_id-tags-get
           zip_file: landscapes-l_id-tags-get.zip
 
       - name: landscapes id tags post lambda deploy zip
@@ -532,7 +532,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-l_id-tags-post
+          function_name: landscape-s-landscape-l_id-tags-post
           zip_file: landscapes-l_id-tags-post.zip
 
       - name: landscapes id tags id delete lambda deploy zip
@@ -545,7 +545,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-l_id-tags-t_id-delete
+          function_name: landscape-s-landscape-l_id-tags-t_id-delete
           zip_file: landscapes-l_id-tags-t_id-delete.zip                                       
 
       # personas
