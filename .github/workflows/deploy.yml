@@ -512,41 +512,41 @@ jobs:
       - name: landscapes id tags get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-v_id-tags-get.zip landscapes/v_id/tags/get/index.js node_modules
+          args: zip -qq -r landscapes-l_id-tags-get.zip landscapes/l_id/tags/get/index.js node_modules
       - name: landscapes id tags get lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-v_id-tags-get
-          zip_file: landscapes-v_id-tags-get.zip
+          function_name: landscapes-s-landscapes-l_id-tags-get
+          zip_file: landscapes-l_id-tags-get.zip
 
       - name: landscapes id tags post lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-v_id-tags-post.zip landscapes/v_id/tags/post/index.js node_modules
+          args: zip -qq -r landscapes-l_id-tags-post.zip landscapes/l_id/tags/post/index.js node_modules
       - name: landscapes id tags post lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-v_id-tags-post
-          zip_file: landscapes-v_id-tags-post.zip
+          function_name: landscapes-s-landscapes-l_id-tags-post
+          zip_file: landscapes-l_id-tags-post.zip
 
       - name: landscapes id tags id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r landscapes-v_id-tags-t_id-delete.zip landscapes/v_id/tags/t_id/delete/index.js node_modules
+          args: zip -qq -r landscapes-l_id-tags-t_id-delete.zip landscapes/l_id/tags/t_id/delete/index.js node_modules
       - name: landscapes id tags id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: landscapes-s-landscapes-v_id-tags-t_id-delete
-          zip_file: landscapes-v_id-tags-t_id-delete.zip                                       
+          function_name: landscapes-s-landscapes-l_id-tags-t_id-delete
+          zip_file: landscapes-l_id-tags-t_id-delete.zip                                       
 
       # personas
       - name: personas get lambda deploy zip
