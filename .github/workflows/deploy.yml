@@ -514,7 +514,7 @@ jobs:
         with:
           args: zip -qq -r landscapes-v_id-tags-get.zip landscapes/v_id/tags/get/index.js node_modules
       - name: landscapes id tags get lambda deploy
-        uses: appleboy/lambda-landscape@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -527,7 +527,7 @@ jobs:
         with:
           args: zip -qq -r landscapes-v_id-tags-post.zip landscapes/v_id/tags/post/index.js node_modules
       - name: landscapes id tags post lambda deploy
-        uses: appleboy/lambda-landscape@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -540,7 +540,7 @@ jobs:
         with:
           args: zip -qq -r landscapes-v_id-tags-t_id-delete.zip landscapes/v_id/tags/t_id/delete/index.js node_modules
       - name: landscapes id tags id delete lambda deploy
-        uses: appleboy/lambda-landscape@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -619,7 +619,7 @@ jobs:
         with:
           args: zip -qq -r personas-p_id-tags-get.zip personas/p_id/tags/get/index.js node_modules
       - name: personas id tags get lambda deploy
-        uses: appleboy/lambda-persona@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -632,7 +632,7 @@ jobs:
         with:
           args: zip -qq -r personas-p_id-tags-post.zip personas/p_id/tags/post/index.js node_modules
       - name: personas id tags post lambda deploy
-        uses: appleboy/lambda-persona@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -645,7 +645,7 @@ jobs:
         with:
           args: zip -qq -r personas-p_id-tags-t_id-delete.zip personas/p_id/tags/t_id/delete/index.js node_modules
       - name: personas id tags id delete lambda deploy
-        uses: appleboy/lambda-persona@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -724,7 +724,7 @@ jobs:
         with:
           args: zip -qq -r questions-q_id-tags-get.zip questions/q_id/tags/get/index.js node_modules
       - name: questions id tags get lambda deploy
-        uses: appleboy/lambda-question@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -737,7 +737,7 @@ jobs:
         with:
           args: zip -qq -r questions-q_id-tags-post.zip questions/q_id/tags/post/index.js node_modules
       - name: questions id tags post lambda deploy
-        uses: appleboy/lambda-question@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -750,7 +750,7 @@ jobs:
         with:
           args: zip -qq -r questions-q_id-tags-t_id-delete.zip questions/q_id/tags/t_id/delete/index.js node_modules
       - name: questions id tags id delete lambda deploy
-        uses: appleboy/lambda-question@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -829,7 +829,7 @@ jobs:
         with:
           args: zip -qq -r roles-r_id-tags-get.zip roles/r_id/tags/get/index.js node_modules
       - name: roles id tags get lambda deploy
-        uses: appleboy/lambda-role@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -842,7 +842,7 @@ jobs:
         with:
           args: zip -qq -r roles-r_id-tags-post.zip roles/r_id/tags/post/index.js node_modules
       - name: roles id tags post lambda deploy
-        uses: appleboy/lambda-role@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -855,7 +855,7 @@ jobs:
         with:
           args: zip -qq -r roles-r_id-tags-t_id-delete.zip roles/r_id/tags/t_id/delete/index.js node_modules
       - name: roles id tags id delete lambda deploy
-        uses: appleboy/lambda-role@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -934,7 +934,7 @@ jobs:
         with:
           args: zip -qq -r rules-r_id-tags-get.zip rules/r_id/tags/get/index.js node_modules
       - name: rules id tags get lambda deploy
-        uses: appleboy/lambda-rule@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -947,7 +947,7 @@ jobs:
         with:
           args: zip -qq -r rules-r_id-tags-post.zip rules/r_id/tags/post/index.js node_modules
       - name: rules id tags post lambda deploy
-        uses: appleboy/lambda-rule@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -960,7 +960,7 @@ jobs:
         with:
           args: zip -qq -r rules-r_id-tags-t_id-delete.zip rules/r_id/tags/t_id/delete/index.js node_modules
       - name: rules id tags id delete lambda deploy
-        uses: appleboy/lambda-rule@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1039,7 +1039,7 @@ jobs:
         with:
           args: zip -qq -r vocabularies-v_id-tags-get.zip vocabularies/v_id/tags/get/index.js node_modules
       - name: vocabularies id tags get lambda deploy
-        uses: appleboy/lambda-vocabulary@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1052,7 +1052,7 @@ jobs:
         with:
           args: zip -qq -r vocabularies-v_id-tags-post.zip vocabularies/v_id/tags/post/index.js node_modules
       - name: vocabularies id tags post lambda deploy
-        uses: appleboy/lambda-vocabulary@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1065,7 +1065,7 @@ jobs:
         with:
           args: zip -qq -r vocabularies-v_id-tags-t_id-delete.zip vocabularies/v_id/tags/t_id/delete/index.js node_modules
       - name: vocabularies id tags id delete lambda deploy
-        uses: appleboy/lambda-vocabulary@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1144,7 +1144,7 @@ jobs:
         with:
           args: zip -qq -r tags-t_id-tags-get.zip tags/t_id/tags/get/index.js node_modules
       - name: tags id tags get lambda deploy
-        uses: appleboy/lambda-tag@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1157,7 +1157,7 @@ jobs:
         with:
           args: zip -qq -r tags-t_id-tags-post.zip tags/t_id/tags/post/index.js node_modules
       - name: tags id tags post lambda deploy
-        uses: appleboy/lambda-tag@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1170,7 +1170,7 @@ jobs:
         with:
           args: zip -qq -r tags-t_id-tags-t_id-delete.zip tags/t_id/tags/t_id/delete/index.js node_modules
       - name: tags id tags id delete lambda deploy
-        uses: appleboy/lambda-tag@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1249,7 +1249,7 @@ jobs:
         with:
           args: zip -qq -r links-l_id-tags-get.zip links/l_id/tags/get/index.js node_modules
       - name: links id tags get lambda deploy
-        uses: appleboy/lambda-link@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1262,7 +1262,7 @@ jobs:
         with:
           args: zip -qq -r links-l_id-tags-post.zip links/l_id/tags/post/index.js node_modules
       - name: links id tags post lambda deploy
-        uses: appleboy/lambda-link@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1275,7 +1275,7 @@ jobs:
         with:
           args: zip -qq -r links-l_id-tags-t_id-delete.zip links/l_id/tags/t_id/delete/index.js node_modules
       - name: links id tags id delete lambda deploy
-        uses: appleboy/lambda-link@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1355,7 +1355,7 @@ jobs:
         with:
           args: zip -qq -r videos-v_id-tags-get.zip videos/v_id/tags/get/index.js node_modules
       - name: videos id tags get lambda deploy
-        uses: appleboy/lambda-video@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1368,7 +1368,7 @@ jobs:
         with:
           args: zip -qq -r videos-v_id-tags-post.zip videos/v_id/tags/post/index.js node_modules
       - name: videos id tags post lambda deploy
-        uses: appleboy/lambda-video@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1381,7 +1381,7 @@ jobs:
         with:
           args: zip -qq -r videos-v_id-tags-t_id-delete.zip videos/v_id/tags/t_id/delete/index.js node_modules
       - name: videos id tags id delete lambda deploy
-        uses: appleboy/lambda-video@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1460,7 +1460,7 @@ jobs:
         with:
           args: zip -qq -r tools-t_id-tags-get.zip tools/t_id/tags/get/index.js node_modules
       - name: tools id tags get lambda deploy
-        uses: appleboy/lambda-tool@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1473,7 +1473,7 @@ jobs:
         with:
           args: zip -qq -r tools-t_id-tags-post.zip tools/t_id/tags/post/index.js node_modules
       - name: tools id tags post lambda deploy
-        uses: appleboy/lambda-tool@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -1486,7 +1486,7 @@ jobs:
         with:
           args: zip -qq -r tools-t_id-tags-t_id-delete.zip tools/t_id/tags/t_id/delete/index.js node_modules
       - name: tools id tags id delete lambda deploy
-        uses: appleboy/lambda-tool@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
