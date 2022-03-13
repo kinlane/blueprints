@@ -303,7 +303,7 @@ jobs:
         with:
           args: zip -qq -r answers-a_id-tags-get.zip answers/a_id/tags/get/index.js node_modules
       - name: answers id tags get lambda deploy
-        uses: appleboy/lambda-answer@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -316,7 +316,7 @@ jobs:
         with:
           args: zip -qq -r answers-a_id-tags-post.zip answers/a_id/tags/post/index.js node_modules
       - name: answers id tags post lambda deploy
-        uses: appleboy/lambda-answer@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -329,7 +329,7 @@ jobs:
         with:
           args: zip -qq -r answers-a_id-tags-t_id-delete.zip answers/a_id/tags/t_id/delete/index.js node_modules
       - name: answers id tags id delete lambda deploy
-        uses: appleboy/lambda-answer@master
+        uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
