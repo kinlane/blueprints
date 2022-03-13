@@ -192,6 +192,46 @@ jobs:
           function_name: actions-s-actions-a_id-delete
           zip_file: actions-a_id-delete.zip                              
 
+      - name: actions id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r actions-a_id-tags-get.zip actions/a_id/tags/get/index.js node_modules
+      - name: actions id tags get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: actions-s-actions-a_id-tags-get
+          zip_file: actions-a_id-tags-get.zip
+
+      - name: actions id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r actions-a_id-tags-post.zip actions/a_id/tags/post/index.js node_modules
+      - name: actions id tags post lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: actions-s-actions-a_id-tags-post
+          zip_file: actions-a_id-tags-post.zip
+
+      - name: actions id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r actions-a_id-tags-t_id-delete.zip actions/a_id/tags/t_id/delete/index.js node_modules
+      - name: actions id tags id delete lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: actions-s-actions-a_id-tags-t_id-delete
+          zip_file: actions-a_id-tags-t_id-delete.zip
+          
+
       # answers
       - name: answers get lambda deploy zip
         uses: kinlane/blueprints@main   
