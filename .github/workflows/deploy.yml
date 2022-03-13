@@ -230,7 +230,7 @@ jobs:
           aws_region: us-east-1
           function_name: actions-s-actions-a_id-tags-t_id-delete
           zip_file: actions-a_id-tags-t_id-delete.zip
-          
+
 
       # answers
       - name: answers get lambda deploy zip
@@ -297,6 +297,45 @@ jobs:
           aws_region: us-east-1
           function_name: answers-s-answers-a_id-delete
           zip_file: answers-a_id-delete.zip                              
+
+      - name: answers id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r answers-a_id-tags-get.zip answers/a_id/tags/get/index.js node_modules
+      - name: answers id tags get lambda deploy
+        uses: appleboy/lambda-answer@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: answers-s-answers-a_id-tags-get
+          zip_file: answers-a_id-tags-get.zip
+
+      - name: answers id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r answers-a_id-tags-post.zip answers/a_id/tags/post/index.js node_modules
+      - name: answers id tags post lambda deploy
+        uses: appleboy/lambda-answer@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: answers-s-answers-a_id-tags-post
+          zip_file: answers-a_id-tags-post.zip
+
+      - name: answers id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r answers-a_id-tags-t_id-delete.zip answers/a_id/tags/t_id/delete/index.js node_modules
+      - name: answers id tags id delete lambda deploy
+        uses: appleboy/lambda-answer@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: answers-s-answers-a_id-tags-t_id-delete
+          zip_file: answers-a_id-tags-t_id-delete.zip
 
       # elements
       - name: elements get lambda deploy zip
