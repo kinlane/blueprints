@@ -322,7 +322,47 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
           function_name: elements-s-elements-e_id-delete
-          zip_file: elements-e_id-delete.zip                              
+          zip_file: elements-e_id-delete.zip  
+
+      - name: elements id tags get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r elements-e_id-tags-get.zip elements/e_id/tags/get/index.js node_modules
+      - name: elements id tags get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: elements-s-elements-e_id-tags-get
+          zip_file: elements-e_id-tags-get.zip
+
+      - name: elements id tags post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r elements-e_id-tags-post.zip elements/e_id/tags/post/index.js node_modules
+      - name: elements id tags post lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: elements-s-elements-e_id-tags-post
+          zip_file: elements-e_id-tags-post.zip
+
+      - name: elements id tags id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r elements-e_id-tags-t_id-delete.zip elements/e_id/tags/t_id/delete/index.js node_modules
+      - name: elements id tags id delete lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: elements-s-elements-e_id-tags-t_id-delete
+          zip_file: elements-e_id-tags-t_id-delete.zip
+                                                
 
       # landscapes
       - name: landscapes get lambda deploy zip
