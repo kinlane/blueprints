@@ -117,7 +117,7 @@ jobs:
       - name: blueprints id areas id put lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-areas-a_id-put.zip blueprints/b_id/areas/t_id/put/index.js node_modules
+          args: zip -qq -r blueprints-b_id-areas-a_id-put.zip blueprints/b_id/areas/a_id/put/index.js node_modules
       - name: blueprints id areas id put lambda deploy
         uses: appleboy/lambda-action@master
         with:
@@ -130,7 +130,7 @@ jobs:
       - name: blueprints id areas id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-areas-a_id-delete.zip blueprints/b_id/areas/t_id/delete/index.js node_modules
+          args: zip -qq -r blueprints-b_id-areas-a_id-delete.zip blueprints/b_id/areas/a_id/delete/index.js node_modules
       - name: blueprints id areas id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:

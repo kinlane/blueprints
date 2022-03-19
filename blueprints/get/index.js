@@ -16,6 +16,16 @@ exports.handler = vandium.generic()
       search = event.search;
     }    
     
+    var tags = 0;
+    if(event.tags){
+      tags = event.tags;
+    }   
+    
+    var role = 0;
+    if(event.role){
+      role = event.role;
+    }       
+    
     var page = 0;
     if(event.page){
       page = event.page;
@@ -29,12 +39,18 @@ exports.handler = vandium.generic()
       limit = 25;
     }
 
-  if(search != ''){
-    var sql = "SELECT * FROM blueprints WHERE name LIKE '%" + search + "%' LIMIT " + event.page + "," + event.limit;
-  }
-  else{
-    var sql = "SELECT * FROM blueprints LIMIT " + event.page + "," + event.limit; 
-  }
+    var sql = "SELECT * FROM blueprints b WHERE id IS NOT NULL";
+    if(search != ''){
+       sql += " AND b.name LIKE '%" + search + "%'";
+    }
+    if(role != ''){
+       sql += " AND id IN(SELECT blueprint_id FROM blueprints_roles WHERE role_id IN(SELECT id FROM roles WHERE name = '" + role + "'))";
+    }   
+    if(tags != ''){
+       sql += " AND id IN(SELECT blueprint_id FROM blueprints_tags WHERE tag_id IN(SELECT id FROM tags WHERE name IN ('" + tags.replace(",","','") + "')))";
+    }     
+    sql += " ORDER BY Level";
+    sql += " LIMIT " + event.page + "," + event.limit;
     connection.query(sql, function (error, results, fields) {
 
     callback( null, results );
