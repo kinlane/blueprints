@@ -24,7 +24,7 @@ exports.handler = vandium.generic()
       limit = 50;
     }
 
-  var sql = 'SELECT * FROM areas WHERE blueprint_id = ' + event.blueprint_id + ' LIMIT ' + event.page + ',' + event.limit;
+  var sql = 'SELECT * FROM blueprints_areas WHERE blueprint_id = ' + event.blueprint_id + ' LIMIT ' + event.page + ',' + event.limit;
     connection.query(sql, function (error, results, fields) {
 
     callback( null, results );

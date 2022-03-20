@@ -13,7 +13,7 @@ exports.handler = vandium.generic()
     
     var total_properties = Object.keys(event.body).length;
 
-    var sql = 'UPDATE areas SET ';
+    var sql = 'UPDATE blueprints_areas SET ';
     
     var property_count = 1;
     for (const [key, value] of Object.entries(event.body)) {
