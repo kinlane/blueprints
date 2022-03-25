@@ -250,15 +250,15 @@ jobs:
       - name: blueprints id links id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-links-t_id-delete.zip blueprints/b_id/links/t_id/delete/index.js node_modules
+          args: zip -qq -r blueprints-b_id-links-l_id-delete.zip blueprints/b_id/links/l_id/delete/index.js node_modules
       - name: blueprints id links id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-s-blueprints-b_id-links-t_id-delete
-          zip_file: blueprints-b_id-links-t_id-delete.zip
+          function_name: blueprints-s-blueprints-b_id-links-l_id-delete
+          zip_file: blueprints-b_id-links-l_id-delete.zip
 
       # Blueprint videos                                      
       - name: blueprints id videos get lambda deploy zip
@@ -290,15 +290,15 @@ jobs:
       - name: blueprints id videos id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-videos-t_id-delete.zip blueprints/b_id/videos/t_id/delete/index.js node_modules
+          args: zip -qq -r blueprints-b_id-videos-v_id-delete.zip blueprints/b_id/videos/v_id/delete/index.js node_modules
       - name: blueprints id videos id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-s-blueprints-b_id-videos-t_id-delete
-          zip_file: blueprints-b_id-videos-t_id-delete.zip
+          function_name: blueprints-s-blueprints-b_id-videos-v_id-delete
+          zip_file: blueprints-b_id-videos-v_id-delete.zip
 
       # Blueprint Answers                                      
       - name: blueprints id answers get lambda deploy zip
