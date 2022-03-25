@@ -370,15 +370,15 @@ jobs:
       - name: blueprints id questions id delete lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
-          args: zip -qq -r blueprints-b_id-questions-t_id-delete.zip blueprints/b_id/questions/t_id/delete/index.js node_modules
+          args: zip -qq -r blueprints-b_id-questions-q_id-delete.zip blueprints/b_id/questions/q_id/delete/index.js node_modules
       - name: blueprints id questions id delete lambda deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: us-east-1
-          function_name: blueprints-s-blueprints-b_id-questions-t_id-delete
-          zip_file: blueprints-b_id-questions-t_id-delete.zip                              
+          function_name: blueprints-s-blueprints-b_id-questions-q_id-delete
+          zip_file: blueprints-b_id-questions-q_id-delete.zip                              
 
       # actions
       - name: actions get lambda deploy zip

@@ -15,14 +15,14 @@ exports.handler = vandium.generic()
     connection.connect(function(err) {
       if (err) throw err;
 
-      var sql = "SELECT * FROM blueprints_questions WHERE blueprint_id = " + event.blueprint_id + " and question_id = " + event.question_id + " LIMIT 1";
+      var sql = "SELECT * FROM blueprints_questions WHERE blueprint_id = " + event.blueprint_id + " and question_id = " + event.body.question_id + " LIMIT 1";
       connection.query(sql, function (err, result, fields) {
         if(result.length > 0){
           callback( null, result[0] ); 
         }
         else{
 
-          var sql = "INSERT INTO blueprints_questions(blueprint_id,question_id) VALUES(" + event.blueprint_id + ", " + event.question_id + ")";
+          var sql = "INSERT INTO blueprints_questions(blueprint_id,question_id) VALUES(" + event.blueprint_id + ", " + event.body.question_id + ")";
         
           connection.query(sql, function (error, results, fields) {
         
