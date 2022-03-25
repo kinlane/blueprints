@@ -11,12 +11,12 @@ exports.handler = vandium.generic()
     database : process.env.database
     });
 
-    var sql = 'INSERT INTO blueprints(';
+    var sql = 'INSERT INTO blueprints_areas_elements(blueprints_areas_id,';
     
-    var total_properties = Object.keys(event).length;
+    var total_properties = Object.keys(event.body).length;
     
     var property_count = 1;
-    for (const [key, value] of Object.entries(event)) {
+    for (const [key, value] of Object.entries(event.body)) {
       sql += key;
       if(property_count != total_properties){
         sql += ',';
@@ -26,10 +26,10 @@ exports.handler = vandium.generic()
       
     sql += ')';
 
-    sql += ' VALUES(';
+    sql += ' VALUES(' + event.area_id + ',';
     
     var property_count = 1;
-    for (const [key, value] of Object.entries(event)) {
+    for (const [key, value] of Object.entries(event.body)) {
       sql += connection.escape(value);
       if(property_count != total_properties){
         sql += ',';

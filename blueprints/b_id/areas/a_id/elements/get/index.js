@@ -11,7 +11,7 @@ exports.handler = vandium.generic()
     database : process.env.database
     });
 
-  var sql = 'SELECT * FROM blueprints_areas_elements WHERE blueprints_areas_id = ' + event.area_id;
+  var sql = 'SELECT e.id as id, e.name as name, bae.label as label, e.description as description FROM blueprints_areas_elements bae INNER JOIN elements e ON bae.element_id = e.id WHERE blueprints_areas_id = ' + event.area_id;
     connection.query(sql, function (error, results, fields) {
 
     callback( null, results );
