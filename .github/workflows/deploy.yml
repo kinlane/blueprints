@@ -260,7 +260,7 @@ jobs:
           function_name: blueprints-s-blueprints-b_id-links-l_id-delete
           zip_file: blueprints-b_id-links-l_id-delete.zip
 
-      # Blueprint videos                                      
+      # Blueprint Videos                                      
       - name: blueprints id videos get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
@@ -300,7 +300,7 @@ jobs:
           function_name: blueprints-s-blueprints-b_id-videos-v_id-delete
           zip_file: blueprints-b_id-videos-v_id-delete.zip
 
-      # Blueprint roles                                      
+      # Blueprint Roles                                      
       - name: blueprints id roles get lambda deploy zip
         uses: kinlane/blueprints@main   
         with:
