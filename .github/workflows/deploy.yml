@@ -300,6 +300,46 @@ jobs:
           function_name: blueprints-s-blueprints-b_id-videos-v_id-delete
           zip_file: blueprints-b_id-videos-v_id-delete.zip
 
+      # Blueprint roles                                      
+      - name: blueprints id roles get lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-b_id-roles-get.zip blueprints/b_id/roles/get/index.js node_modules
+      - name: blueprints id roles get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-s-blueprints-b_id-roles-get
+          zip_file: blueprints-b_id-roles-get.zip
+
+      - name: blueprints id roles post lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-b_id-roles-post.zip blueprints/b_id/roles/post/index.js node_modules
+      - name: blueprints id roles post lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-s-blueprints-b_id-roles-post
+          zip_file: blueprints-b_id-roles-post.zip
+
+      - name: blueprints id roles id delete lambda deploy zip
+        uses: kinlane/blueprints@main   
+        with:
+          args: zip -qq -r blueprints-b_id-roles-r_id-delete.zip blueprints/b_id/roles/r_id/delete/index.js node_modules
+      - name: blueprints id roles id delete lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: blueprints-s-blueprints-b_id-roles-r_id-delete
+          zip_file: blueprints-b_id-roles-r_id-delete.zip
+
       # Blueprint Answers                                      
       - name: blueprints id answers get lambda deploy zip
         uses: kinlane/blueprints@main   

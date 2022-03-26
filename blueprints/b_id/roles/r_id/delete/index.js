@@ -10,24 +10,11 @@ exports.handler = vandium.generic()
     password : process.env.password,
     database : process.env.database
     });
-    
-    var page = 0;
-    if(event.page){
-      page = event.page;
-    }
-    
-    var limit = 25;
-    if(event.limit){
-      limit = event.limit;
-    }   
-    if(limit > 50){
-      limit = 50;
-    }
 
-  var sql = 'SELECT * FROM blueprints_areas WHERE blueprint_id = ' + event.blueprint_id + ' LIMIT ' + page + ',' + limit;
+    var sql = 'DELETE FROM blueprints_roles WHERE blueprint_id = ' + event.blueprint_id + ' AND role_id = ' + event.role_id;
     connection.query(sql, function (error, results, fields) {
 
-    callback( null, results );
+    callback( null );
 
   });
 });
